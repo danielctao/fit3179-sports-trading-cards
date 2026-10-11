@@ -44,3 +44,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 3
+// AFL Footy Stars category-family heatmap
+// =====================================================
+
+vegaEmbed(
+  "#vis3",
+  "json/v03_category_heatmap.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 3 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 3:",
+      error
+    );
+  });

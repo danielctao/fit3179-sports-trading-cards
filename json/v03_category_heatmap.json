@@ -1,0 +1,165 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Heatmap showing AFL Footy Stars category-family changes across 2020, 2022, 2024 and 2026.",
+  "width": "container",
+  "height": 390,
+  "background": null,
+  "data": {
+    "url": "data/v03_category_heatmap.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": [
+            "2020",
+            "2022",
+            "2024",
+            "2026"
+          ],
+          "axis": {
+            "orient": "top",
+            "title": null,
+            "labelAngle": 0,
+            "labelFontSize": 13,
+            "labelFontWeight": "bold",
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "sort": [
+            "Base",
+            "Character / Illustrated",
+            "Player Feature / Performance",
+            "Parallel / Variant",
+            "Predictor / Redemption",
+            "Premium / Limited",
+            "Signature / Patch",
+            "Prize / Promotion"
+          ],
+          "axis": {
+            "title": null,
+            "labelFontSize": 12,
+            "labelLimit": 240,
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "color": {
+          "field": "category_count",
+          "type": "quantitative",
+          "title": "Number of Categories",
+          "scale": {
+            "domain": [
+              0,
+              9
+            ],
+            "range": [
+              "#F4F0E8",
+              "#174A7E"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 260
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "family",
+            "type": "nominal",
+            "title": "Category Family"
+          },
+          {
+            "field": "category_count",
+            "type": "quantitative",
+            "title": "Distinct Categories"
+          },
+          {
+            "field": "reported_designs",
+            "type": "quantitative",
+            "title": "Reported Card Designs",
+            "format": ",d"
+          },
+          {
+            "field": "categories",
+            "type": "nominal",
+            "title": "Categories"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "datum.category_count == 0 ? '' : datum.category_count",
+          "as": "cell_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": [
+            "2020",
+            "2022",
+            "2024",
+            "2026"
+          ]
+        },
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "sort": [
+            "Base",
+            "Character / Illustrated",
+            "Player Feature / Performance",
+            "Parallel / Variant",
+            "Predictor / Redemption",
+            "Premium / Limited",
+            "Signature / Patch",
+            "Prize / Promotion"
+          ]
+        },
+        "text": {
+          "field": "cell_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.category_count >= 5",
+            "value": "#FFFFFF"
+          },
+          "value": "#17212B"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}

@@ -123,6 +123,8 @@ body {
   border-radius: 8px;
 }
 
+/* Visualisation 1 */
+
 #vis1 {
   width: 100%;
   min-height: 550px;
@@ -132,6 +134,8 @@ body {
   width: 100%;
 }
 
+/* Visualisation 2 */
+
 #vis2 {
   width: 100%;
   min-height: 390px;
@@ -139,6 +143,46 @@ body {
 
 #vis2 .vega-embed {
   width: 100%;
+}
+
+/* Visualisation 3 */
+
+#vis3 {
+  width: 100%;
+  min-height: 430px;
+}
+
+#vis3 .vega-embed {
+  width: 100%;
+}
+
+.visualisation-subsection {
+  margin-top: 90px;
+}
+
+.visualisation-subsection h3 {
+  max-width: 800px;
+  margin: 0 0 18px;
+
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.subsection-introduction {
+  max-width: 720px;
+  margin-bottom: 40px;
+
+  font-size: 1.05rem;
+  color: #52606b;
+}
+
+.method-note {
+  max-width: 760px;
+  margin-top: 14px;
+
+  font-size: 0.78rem;
+  color: #7a838c;
 }
 
 .chart-note {
@@ -195,8 +239,12 @@ body {
    VEGA TOOLTIP
    ===================================================== */
 
+/* =====================================================
+   VEGA TOOLTIP
+   ===================================================== */
+
 #vg-tooltip-element {
-  max-width: none !important;
+  max-width: 650px !important;
   width: auto !important;
 }
 
@@ -205,18 +253,31 @@ body {
   table-layout: auto !important;
 }
 
-#vg-tooltip-element td {
+/* Keep tooltip labels on one line */
+#vg-tooltip-element td.key {
   white-space: nowrap !important;
+  max-width: none !important;
+  width: auto !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  padding-right: 16px !important;
 }
 
-#vg-tooltip-element td.key {
-  max-width: none !important;
+/* Normal tooltip values stay on one line */
+#vg-tooltip-element td.value {
+  white-space: nowrap !important;
   width: auto !important;
   overflow: visible !important;
   text-overflow: clip !important;
 }
 
-#vg-tooltip-element td.value {
-  width: auto !important;
-  white-space: nowrap !important;
+/* Allow the final Categories value to wrap */
+#vg-tooltip-element tr:last-child td.value {
+  white-space: normal !important;
+  max-width: 420px !important;
+  min-width: 300px;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  text-overflow: clip !important;
+  line-height: 1.4;
 }
