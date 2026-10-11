@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Australia's Trading Card Playbook</title>
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Vega libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 </head>
+
 <body>
-  <h1>Australia's Trading Card Playbook</h1>
-  <p>FIT3179 Data Visualisation 2</p>
+
+  <!-- ==================================================
+       HERO
+       ================================================== -->
+
+  <header class="hero">
+
+    <div class="page-container">
+
+      <p class="eyebrow">
+        FIT3179 · Data Visualisation 2
+      </p>
+
+      <h1>
+        Australia's Trading Card Playbook
+      </h1>
+
+      <p class="hero-description">
+        Exploring how Australian sports trading-card collections have
+        evolved, who gets represented, and how the geography of
+        Australian football and rugby league shapes the sporting
+        landscape.
+      </p>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+    <!-- ==================================================
+         SECTION 1 — SPORTING LANDSCAPE
+         ================================================== -->
+
+    <section class="story-section" id="sporting-landscape">
+
+      <div class="page-container">
+
+        <p class="section-number">
+          01 · The Sporting Landscape
+        </p>
+
+        <h2>
+          Two codes, one country
+        </h2>
+
+        <p class="section-introduction">
+          Australian football and rugby league occupy very different
+          parts of Australia's sporting landscape. Compare participation
+          across the states and territories, then switch between adults
+          and children to see how the pattern changes by generation.
+        </p>
+
+
+        <!-- VISUALISATION 1 -->
+
+        <div class="visualisation-card">
+
+          <div id="vis1"></div>
+
+          <p class="chart-note">
+            <strong>How to read the map:</strong>
+            Blue states have higher Australian football participation, 
+            while orange states have higher rugby league participation. The stornger the colour,
+            the larger the percentage-point difference between the two codes.
+          </p>
+
+        </div>
+
+
+        <p class="source-note">
+          Source: Australian Sports Commission, AusPlay,
+          January–December 2025. Released April 2026.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Main JavaScript -->
+  <script src="js/main.js"></script>
+
 </body>
+
 </html>
