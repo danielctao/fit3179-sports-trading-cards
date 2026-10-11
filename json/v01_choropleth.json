@@ -1,0 +1,136 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Diverging choropleth comparing Australian football and rugby league participation rates across Australian states and territories.",
+  "width": "container",
+  "height": 520,
+  "background": null,
+  "params": [
+    {
+      "name": "populationGroup",
+      "value": "Adults",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adults",
+          "Children"
+        ],
+        "name": "Population group: "
+      }
+    }
+  ],
+  "data": {
+    "url": "data/v01_participation_difference.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.population_group == populationGroup"
+    },
+    {
+      "lookup": "state_code",
+      "from": {
+        "data": {
+          "url": "spatial/australia_states_2021.geojson",
+          "format": {
+            "type": "json",
+            "property": "features"
+          }
+        },
+        "key": "properties.state_code",
+        "fields": [
+          "geometry"
+        ]
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -134,
+      0,
+      0
+    ]
+  },
+  "mark": {
+    "type": "geoshape",
+    "stroke": "#FFFFFF",
+    "strokeWidth": 1.2
+  },
+  "encoding": {
+    "shape": {
+      "field": "geometry",
+      "type": "geojson"
+    },
+    "color": {
+      "field": "difference_pp",
+      "type": "quantitative",
+      "title": "AFL \u2212 Rugby League (percentage points)",
+      "scale": {
+        "domain": [
+          -10,
+          0,
+          10
+        ],
+        "range": [
+          "#C65D3B",
+          "#F3EFE7",
+          "#244B74"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 300,
+        "titleLimit": 420
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state_name",
+        "type": "nominal",
+        "title": "State / territory"
+      },
+      {
+        "field": "population_group",
+        "type": "nominal",
+        "title": "Population"
+      },
+      {
+        "field": "afl_participation_pct",
+        "type": "quantitative",
+        "title": "Australian football (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "nrl_participation_pct",
+        "type": "quantitative",
+        "title": "Rugby league (%)",
+        "format": ".2f"
+      },
+      {
+        "field": "difference_pp",
+        "type": "quantitative",
+        "title": "Difference (pp)",
+        "format": "+.2f"
+      },
+      {
+        "field": "dominant_code",
+        "type": "nominal",
+        "title": "Higher participation"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  }
+}

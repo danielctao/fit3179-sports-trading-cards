@@ -1,0 +1,17 @@
+﻿state_code,state_name,population_group,afl_participation_pct,nrl_participation_pct,difference_pp,dominant_code,afl_estimated_participants,nrl_estimated_participants
+ACT,Australian Capital Territory,Adults,0.933,0.477,0.456,AFL,3712,1899
+NSW,New South Wales,Adults,1.141,1.157,-0.016,Balanced,80529,81625
+NT,Northern Territory,Adults,4.476,1.082,3.394,AFL,9327,2254
+QLD,Queensland,Adults,1.34,1.291,0.048,Balanced,61984,59741
+SA,South Australia,Adults,3.527,0.114,3.414,AFL,55771,1795
+TAS,Tasmania,Adults,2.721,0.083,2.639,AFL,13153,399
+VIC,Victoria,Adults,3.836,0.234,3.602,AFL,222899,13594
+WA,Western Australia,Adults,4.04,0.462,3.578,AFL,99754,11410
+ACT,Australian Capital Territory,Children,1.684,2.274,-0.59,Rugby League,1405,1898
+NSW,New South Wales,Children,2.499,2.544,-0.045,Balanced,37478,38153
+NT,Northern Territory,Children,3.545,5.038,-1.493,Rugby League,1880,2671
+QLD,Queensland,Children,4.159,3.403,0.757,AFL,41991,34354
+SA,South Australia,Children,8.25,0.0,8.25,AFL,25795,0
+TAS,Tasmania,Children,8.295,0.0,8.295,AFL,7683,0
+VIC,Victoria,Children,10.064,0.239,9.825,AFL,123449,2932
+WA,Western Australia,Children,8.041,0.542,7.5,AFL,44002,2964
