@@ -78,6 +78,10 @@ body {
   padding: 90px 0;
 }
 
+.section-alternate {
+  background: #ece9e1;
+}
+
 .section-number {
   margin-bottom: 10px;
 
@@ -128,6 +132,15 @@ body {
   width: 100%;
 }
 
+#vis2 {
+  width: 100%;
+  min-height: 390px;
+}
+
+#vis2 .vega-embed {
+  width: 100%;
+}
+
 .chart-note {
   max-width: 760px;
 
@@ -175,4 +188,35 @@ body {
     padding: 16px;
   }
 
+}
+
+
+/* =====================================================
+   VEGA TOOLTIP
+   ===================================================== */
+
+#vg-tooltip-element {
+  max-width: none !important;
+  width: auto !important;
+}
+
+#vg-tooltip-element table {
+  width: auto !important;
+  table-layout: auto !important;
+}
+
+#vg-tooltip-element td {
+  white-space: nowrap !important;
+}
+
+#vg-tooltip-element td.key {
+  max-width: none !important;
+  width: auto !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+#vg-tooltip-element td.value {
+  width: auto !important;
+  white-space: nowrap !important;
 }

@@ -105,7 +105,7 @@
         "color": {
           "field": "selected_difference_pp",
           "type": "quantitative",
-          "title": "Participation difference (percentage points)",
+          "title": "Participation Difference (percentage points)",
           "scale": {
             "domain": [
               -10,
@@ -129,18 +129,18 @@
           {
             "field": "state_name",
             "type": "nominal",
-            "title": "State / territory"
+            "title": "State / Territory"
           },
           {
             "field": "selected_afl_pct",
             "type": "quantitative",
-            "title": "Australian football (%)",
+            "title": "Australian Football (%)",
             "format": ".2f"
           },
           {
             "field": "selected_nrl_pct",
             "type": "quantitative",
-            "title": "Rugby league (%)",
+            "title": "Rugby League (%)",
             "format": ".2f"
           },
           {
@@ -152,7 +152,7 @@
           {
             "field": "higher_participation",
             "type": "nominal",
-            "title": "Higher participation"
+            "title": "Higher Participation"
           }
         ]
       }
