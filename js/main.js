@@ -68,3 +68,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 4
+// 2026 AFL Footy Stars collection hierarchy
+// =====================================================
+
+vegaEmbed(
+  "#vis4",
+  "json/v04_collection_sunburst.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 4 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 4:",
+      error
+    );
+  });

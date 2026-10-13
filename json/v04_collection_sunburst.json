@@ -1,0 +1,269 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Two-ring sunburst showing the composition of the 2026 AFL Footy Stars collection by analytical category family and individual checklist category.",
+  "width": 860,
+  "height": 520,
+  "padding": 10,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "signals": [
+    {
+      "name": "cx",
+      "update": "width * 0.42"
+    },
+    {
+      "name": "cy",
+      "update": "height * 0.55"
+    }
+  ],
+  "data": [
+    {
+      "name": "source",
+      "url": "data/v04_collection_sunburst.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "start_angle": "number",
+          "end_angle": "number",
+          "inner_radius": "number",
+          "outer_radius": "number",
+          "design_count": "number",
+          "family_category_count": "number"
+        }
+      }
+    },
+    {
+      "name": "families",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.level === 'Family'"
+        }
+      ]
+    },
+    {
+      "name": "categories",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.level === 'Category'"
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "familyColor",
+      "type": "ordinal",
+      "domain": [
+        "Base",
+        "Character / Illustrated",
+        "Player Feature / Performance",
+        "Parallel / Variant",
+        "Premium / Limited",
+        "Signature / Patch",
+        "Prize / Promotion"
+      ],
+      "range": [
+        "#294F73",
+        "#B56A4A",
+        "#6F8F72",
+        "#6D5A8D",
+        "#3D7C86",
+        "#A94F6D",
+        "#8A775E"
+      ]
+    }
+  ],
+  "legends": [
+  {
+    "fill": "familyColor",
+    "title": "Category Family",
+    "orient": "none",
+    "legendX": 670,
+    "legendY": 60,
+
+    "labelFont": "Arial",
+    "labelFontSize": 12,
+
+    "titleFont": "Arial",
+    "titleFontSize": 13,
+    "titleFontWeight": "bold",
+
+    "symbolType": "square"
+  }
+  ],
+  "marks": [
+    {
+      "type": "arc",
+      "from": {
+        "data": "families"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "cx"
+          },
+          "y": {
+            "signal": "cy"
+          },
+          "startAngle": {
+            "field": "start_angle"
+          },
+          "endAngle": {
+            "field": "end_angle"
+          },
+          "innerRadius": {
+            "field": "inner_radius"
+          },
+          "outerRadius": {
+            "field": "outer_radius"
+          },
+          "fill": {
+            "scale": "familyColor",
+            "field": "family"
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeWidth": {
+            "value": 2
+          },
+          "tooltip": {
+            "signal": "{'Category Family': datum.family, 'Distinct Categories': datum.family_category_count, 'Reported Card Designs': format(datum.design_count, ',d')}"
+          }
+        },
+        "update": {
+          "opacity": {
+            "value": 1
+          }
+        },
+        "hover": {
+          "opacity": {
+            "value": 0.82
+          }
+        }
+      }
+    },
+    {
+      "type": "arc",
+      "from": {
+        "data": "categories"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "cx"
+          },
+          "y": {
+            "signal": "cy"
+          },
+          "startAngle": {
+            "field": "start_angle"
+          },
+          "endAngle": {
+            "field": "end_angle"
+          },
+          "innerRadius": {
+            "field": "inner_radius"
+          },
+          "outerRadius": {
+            "field": "outer_radius"
+          },
+          "fill": {
+            "scale": "familyColor",
+            "field": "family"
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeWidth": {
+            "value": 1.3
+          },
+          "tooltip": {
+            "signal": "{'Checklist Category': datum.category, 'Category Family': datum.family, 'Reported Card Designs': format(datum.design_count, ',d'), 'Pack Odds': datum.pack_odds, 'Serial Numbered To': datum.serial_numbered_to, 'Distribution': datum.distribution_variant}"
+          }
+        },
+        "update": {
+          "opacity": {
+            "value": 0.72
+          }
+        },
+        "hover": {
+          "opacity": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "cx"
+          },
+          "y": {
+            "signal": "cy - 8"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "value": "2026"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 28
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#17212B"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "cx"
+          },
+          "y": {
+            "signal": "cy + 22"
+          },
+          "align": {
+            "value": "center"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "value": "2,284 designs"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 13
+          },
+          "fill": {
+            "value": "#66717C"
+          }
+        }
+      }
+    }
+  ]
+}

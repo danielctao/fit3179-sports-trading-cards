@@ -1,0 +1,34 @@
+﻿level,family,category,label,start_angle,end_angle,inner_radius,outer_radius,design_count,family_category_count,pack_odds,serial_numbered_to,distribution_variant
+Family,Base,,Base,-1.57079633,-0.82803799,72,142,270,2,,,
+Category,Base,Base - AFL,Base - AFL,-1.57079633,-0.92707244,148,235,234,2,Not stated,Not stated,Retail/Main set
+Category,Base,Base - AFLW,Base - AFLW,-0.92707244,-0.82803799,148,235,36,2,Not stated,Not stated,Retail/Main set
+Family,Character / Illustrated,,Character / Illustrated,-0.82803799,-0.53093466,72,142,108,1,,,
+Category,Character / Illustrated,Footy Heads,Footy Heads,-0.82803799,-0.53093466,148,235,108,1,1:3,Not stated,Retail/Main set
+Family,Player Feature / Performance,,Player Feature / Performance,-0.53093466,0.00825287,72,142,196,2,,,
+Category,Player Feature / Performance,Adrenaline,Adrenaline,-0.53093466,-0.28334855,148,235,90,2,1:4,Not stated,Retail/Main set
+Category,Player Feature / Performance,Milestone Games,Milestone Games,-0.28334855,0.00825287,148,235,106,2,1:6,Not stated,Retail/Main set
+Family,Parallel / Variant,,Parallel / Variant,0.00825287,2.88025176,72,142,1044,9,,,
+Category,Parallel / Variant,Octane - Die-Cut,Octane - Die-Cut,0.00825287,0.45390787,148,235,162,9,1:9,Not stated,Retail/Main set
+Category,Parallel / Variant,BOOOM Ice,BOOOM Ice,0.45390787,0.94908009,148,235,180,9,1:36,510,Retail/Main set
+Category,Parallel / Variant,Mercury - Team Colours,Mercury - Team Colours,0.94908009,1.54328676,148,235,216,9,1:36,425,Retail/Main set
+Category,Parallel / Variant,Mercury - Green,Mercury - Green,1.54328676,1.79087287,148,235,90,9,1:540,70,Retail/Main set
+Category,Parallel / Variant,Footy Stars Refractor,Footy Stars Refractor,1.79087287,1.98894176,148,235,72,9,1:600,80,Retail/Main set
+Category,Parallel / Variant,Select Rewind - Neutron,Select Rewind - Neutron,1.98894176,2.13749343,148,235,54,9,1:2100,30,Retail/Main set
+Category,Parallel / Variant,Adrenaline - Pink,Adrenaline - Pink,2.13749343,2.38507954,148,235,90,9,Not stated,Not stated,Retail Starter Pack exclusive
+Category,Parallel / Variant,Octane - Electric Blue,Octane - Electric Blue,2.38507954,2.63266565,148,235,90,9,Not stated,Not stated,Rebel Starter Pack exclusive
+Category,Parallel / Variant,Mercury - Tie Dye,Mercury - Tie Dye,2.63266565,2.88025176,148,235,90,9,Not stated,Not stated,Storage Locker / Blaster exclusive
+Family,Premium / Limited,,Premium / Limited,2.88025176,3.8705962,72,142,360,3,,,
+Category,Premium / Limited,Luminous,Luminous,2.88025176,3.37542398,148,235,180,3,1 per pack,Not stated,Retail/Main set
+Category,Premium / Limited,Select Rewind,Select Rewind,3.37542398,3.82107898,148,235,162,3,1:12,Not stated,Retail/Main set
+Category,Premium / Limited,Golden Treasure,Golden Treasure,3.82107898,3.8705962,148,235,18,3,1:3800,49,Retail/Main set
+Family,Signature / Patch,,Signature / Patch,3.8705962,4.66287176,72,142,288,8,,,
+Category,Signature / Patch,2026 Brownlow Predictor Signature - Gold,2026 Brownlow Predictor Signature - Gold,3.8705962,4.11818231,148,235,90,8,1:172,220,Retail/Main set
+Category,Signature / Patch,2026 Brownlow Predictor Patch - Gold,2026 Brownlow Predictor Patch - Gold,4.11818231,4.36576842,148,235,90,8,1:172,220,Retail/Main set
+Category,Signature / Patch,2026 Coleman Predictor Signature - Gold,2026 Coleman Predictor Signature - Gold,4.36576842,4.41528565,148,235,18,8,1:864,220,Retail/Main set
+Category,Signature / Patch,2026 Coleman Predictor Patch - Gold,2026 Coleman Predictor Patch - Gold,4.41528565,4.46480287,148,235,18,8,1:864,220,Retail/Main set
+Category,Signature / Patch,2026 Norm Smith Predictor Signature - Gold,2026 Norm Smith Predictor Signature - Gold,4.46480287,4.51432009,148,235,18,8,1:864,220,Retail/Main set
+Category,Signature / Patch,2026 Premiership Predictor Signature - Gold,2026 Premiership Predictor Signature - Gold,4.51432009,4.56383731,148,235,18,8,1:864,220,Retail/Main set
+Category,Signature / Patch,2026 Rising Star Predictor Signature - Gold,2026 Rising Star Predictor Signature - Gold,4.56383731,4.61335454,148,235,18,8,1:864,220,Retail/Main set
+Category,Signature / Patch,2026 Rising Star Predictor Patch - Gold,2026 Rising Star Predictor Patch - Gold,4.61335454,4.66287176,148,235,18,8,1:864,220,Retail/Main set
+Family,Prize / Promotion,,Prize / Promotion,4.66287176,4.71238898,72,142,18,1,,,
+Category,Prize / Promotion,Instant Win,Instant Win,4.66287176,4.71238898,148,235,18,1,1:2592,Not stated,Retail/Main set

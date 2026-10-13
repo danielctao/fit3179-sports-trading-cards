@@ -185,6 +185,17 @@ body {
   color: #7a838c;
 }
 
+/* Visualisation 4 */
+
+#vis4 {
+  width: 100%;
+  min-height: 550px;
+}
+
+#vis4 .vega-embed {
+  width: 100%;
+}
+
 .chart-note {
   max-width: 760px;
 
