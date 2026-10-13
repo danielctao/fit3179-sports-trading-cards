@@ -116,3 +116,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 6
+// Player representation by AFL position
+// =====================================================
+
+vegaEmbed(
+  "#vis6",
+  "json/v06_player_position_boxplot.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 6 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 6:",
+      error
+    );
+  });

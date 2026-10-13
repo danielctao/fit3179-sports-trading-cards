@@ -209,6 +209,17 @@ body {
   justify-content: center;
 }
 
+/* Visualisation 6 */
+
+#vis6 {
+  width: 100%;
+  min-height: 470px;
+}
+
+#vis6 .vega-embed {
+  width: 100%;
+}
+
 .chart-note {
   max-width: 760px;
 

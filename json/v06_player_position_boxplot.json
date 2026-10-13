@@ -1,0 +1,157 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Interactive box plot with player-level strip points comparing AFL Footy Stars card representation by player position and release year.",
+  "width": "container",
+  "height": 420,
+  "background": null,
+  "data": {
+    "url": "data/v06_player_representation.csv"
+  },
+  "params": [
+    {
+      "name": "releaseYear",
+      "value": "2026",
+      "bind": {
+        "input": "select",
+        "options": [
+          "2020",
+          "2022",
+          "2024",
+          "2026"
+        ],
+        "name": "Release year: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.year == releaseYear"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "boxplot",
+        "extent": 1.5,
+        "size": 58,
+        "box": {
+          "fill": "#A9BBCB",
+          "stroke": "#174A7E",
+          "strokeWidth": 1.5
+        },
+        "median": {
+          "color": "#17212B",
+          "strokeWidth": 2.5
+        },
+        "rule": {
+          "color": "#52606B"
+        },
+        "ticks": {
+          "color": "#52606B"
+        },
+        "outliers": false
+      },
+      "encoding": {
+        "x": {
+          "field": "position_group",
+          "type": "nominal",
+          "title": "Player Position",
+          "sort": [
+            "Defender",
+            "Midfielder",
+            "Midfielder / Forward",
+            "Forward",
+            "Ruck"
+          ],
+          "axis": {
+            "labelAngle": 0,
+            "labelFontSize": 12,
+            "titleFontSize": 12
+          }
+        },
+        "y": {
+          "field": "card_design_count",
+          "type": "quantitative",
+          "title": "Card Designs Per Player",
+          "scale": {
+            "zero": true
+          },
+          "axis": {
+            "tickMinStep": 1,
+            "labelFontSize": 12,
+            "titleFontSize": 12,
+            "gridColor": "#E3E0D8",
+            "gridOpacity": 0.8
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 28,
+        "opacity": 0.2,
+        "color": "#174A7E"
+      },
+      "encoding": {
+        "x": {
+          "field": "position_group",
+          "type": "nominal",
+          "sort": [
+            "Defender",
+            "Midfielder",
+            "Midfielder / Forward",
+            "Forward",
+            "Ruck"
+          ]
+        },
+        "xOffset": {
+          "field": "jitter_bucket",
+          "type": "nominal"
+        },
+        "y": {
+          "field": "card_design_count",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "player_name",
+            "type": "nominal",
+            "title": "Player"
+          },
+          {
+            "field": "position_group",
+            "type": "nominal",
+            "title": "Player Position"
+          },
+          {
+            "field": "team",
+            "type": "nominal",
+            "title": "Team"
+          },
+          {
+            "field": "card_design_count",
+            "type": "quantitative",
+            "title": "Card Designs"
+          },
+          {
+            "field": "category_count",
+            "type": "quantitative",
+            "title": "Distinct Categories"
+          },
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Release Year"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}
