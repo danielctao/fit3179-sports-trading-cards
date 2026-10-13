@@ -1,0 +1,16 @@
+﻿stage,key,label,count,x0,x1,y0,y1,fill,label_side
+Year,2020,2020,13,80,102,58,120.753,#34495E,left
+Year,2022,2022,22,80,102,132.753,238.951,#34495E,left
+Year,2024,2024,20,80,102,250.951,347.494,#34495E,left
+Year,2026,2026,26,80,102,359.494,485.0,#34495E,left
+Family,Base,Base,9,425,447,58,100.0,#294F73,middle
+Family,Character / Illustrated,Character / Illustrated,7,425,447,107.0,139.667,#B56A4A,middle
+Family,Player Feature / Performance,Player Feature / Performance,9,425,447,146.667,188.667,#6F8F72,middle
+Family,Parallel / Variant,Parallel / Variant,20,425,447,195.667,289.0,#6D5A8D,middle
+Family,Predictor / Redemption,Predictor / Redemption,11,425,447,296.0,347.333,#C49A44,middle
+Family,Premium / Limited,Premium / Limited,11,425,447,354.333,405.667,#3D7C86,middle
+Family,Signature / Patch,Signature / Patch,10,425,447,412.667,459.333,#A94F6D,middle
+Family,Prize / Promotion,Prize / Promotion,4,425,447,466.333,485.0,#8A775E,middle
+Status,Serial-numbered,Serial-numbered,41,790,812,58,255.914,#394B59,right
+Status,Pack odds only,Pack odds only,28,790,812,273.914,409.074,#7B8794,right
+Status,Neither stated,Neither stated,12,790,812,427.074,485.0,#C8CDD2,right

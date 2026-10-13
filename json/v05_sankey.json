@@ -1,0 +1,230 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Sankey-style alluvial diagram showing AFL Footy Stars checklist categories flowing from release year to analytical category family to scarcity signal.",
+  "width": 950,
+  "height": 530,
+  "padding": 10,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": [
+    {
+      "name": "links",
+      "url": "data/v05_sankey_links.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "count": "number"
+        }
+      }
+    },
+    {
+      "name": "nodes",
+      "url": "data/v05_sankey_nodes.csv",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "count": "number",
+          "x0": "number",
+          "x1": "number",
+          "y0": "number",
+          "y1": "number"
+        }
+      }
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 80
+          },
+          "y": {
+            "value": 24
+          },
+          "text": {
+            "value": "RELEASE YEAR"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#66717C"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 425
+          },
+          "y": {
+            "value": 24
+          },
+          "text": {
+            "value": "CATEGORY FAMILY"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#66717C"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 790
+          },
+          "y": {
+            "value": 24
+          },
+          "text": {
+            "value": "SCARCITY SIGNAL"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#66717C"
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {
+        "data": "links"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "field": "fill"
+          },
+          "fillOpacity": {
+            "value": 0.42
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeOpacity": {
+            "value": 0.18
+          },
+          "tooltip": {
+            "signal": "{'Flow': datum.stage, 'From': datum.source, 'To': datum.target, 'Distinct Categories': datum.count}"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.78
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "x0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "field": "fill"
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeWidth": {
+            "value": 1
+          },
+          "cornerRadius": {
+            "value": 2
+          },
+          "tooltip": {
+            "signal": "{'Stage': datum.stage, 'Label': datum.label, 'Distinct Categories': datum.count}"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "signal": "datum.stage === 'Year' ? datum.x0 - 8 : datum.stage === 'Status' ? datum.x1 + 8 : datum.x1 + 8"
+          },
+          "y": {
+            "signal": "(datum.y0 + datum.y1) / 2"
+          },
+          "align": {
+            "signal": "datum.stage === 'Year' ? 'right' : 'left'"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "text": {
+            "signal": "datum.label + '  ' + datum.count"
+          },
+          "font": {
+            "value": "Arial"
+          },
+          "fontSize": {
+            "value": 11
+          },
+          "fontWeight": {
+            "signal": "datum.stage === 'Family' ? 'normal' : 'bold'"
+          },
+          "fill": {
+            "value": "#17212B"
+          }
+        }
+      }
+    }
+  ]
+}

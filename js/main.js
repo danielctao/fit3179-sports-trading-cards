@@ -92,3 +92,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 5
+// Category evolution and scarcity Sankey
+// =====================================================
+
+vegaEmbed(
+  "#vis5",
+  "json/v05_sankey.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 5 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 5:",
+      error
+    );
+  });

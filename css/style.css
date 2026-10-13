@@ -196,6 +196,19 @@ body {
   width: 100%;
 }
 
+/* Visualisation 5 */
+
+#vis5 {
+  width: 100%;
+  min-height: 560px;
+}
+
+#vis5 .vega-embed {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .chart-note {
   max-width: 760px;
 
@@ -245,10 +258,6 @@ body {
 
 }
 
-
-/* =====================================================
-   VEGA TOOLTIP
-   ===================================================== */
 
 /* =====================================================
    VEGA TOOLTIP
