@@ -140,3 +140,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 7
+// Proportional symbol map of participation
+// =====================================================
+
+vegaEmbed(
+  "#vis7",
+  "json/v07_proportional_symbol_map.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 7 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 7:",
+      error
+    );
+  });

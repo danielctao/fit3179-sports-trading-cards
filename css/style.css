@@ -220,6 +220,17 @@ body {
   width: 100%;
 }
 
+/* Visualisation 7 */
+
+#vis7 {
+  width: 100%;
+  min-height: 570px;
+}
+
+#vis7 .vega-embed {
+  width: 100%;
+}
+
 .chart-note {
   max-width: 760px;
 

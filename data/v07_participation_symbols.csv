@@ -1,0 +1,33 @@
+﻿state_code,state_name,sport,population_group,participation_pct,estimated_participants,longitude,latitude,label_longitude,label_latitude,elbow_longitude,elbow_latitude,label_side
+ACT,Australian Capital Territory,Australian football,Adults,0.93,3712,149.002376,-35.480016,151.2,-35.1,150.1,-35.4,right
+ACT,Australian Capital Territory,Australian football,Children,1.68,1405,149.002376,-35.480016,151.2,-35.1,150.1,-35.4,right
+ACT,Australian Capital Territory,Rugby league,Adults,0.48,1899,149.002376,-35.480016,151.2,-35.1,150.1,-35.4,right
+ACT,Australian Capital Territory,Rugby league,Children,2.27,1898,149.002376,-35.480016,151.2,-35.1,150.1,-35.4,right
+NSW,New South Wales,Australian football,Adults,1.14,80529,147.011552,-32.16648,150.4,-31.1,148.8,-31.8,right
+NSW,New South Wales,Australian football,Children,2.5,37478,147.011552,-32.16648,150.4,-31.1,148.8,-31.8,right
+NSW,New South Wales,Rugby league,Adults,1.16,81625,147.011552,-32.16648,150.4,-31.1,148.8,-31.8,right
+NSW,New South Wales,Rugby league,Children,2.54,38153,147.011552,-32.16648,150.4,-31.1,148.8,-31.8,right
+NT,Northern Territory,Australian football,Adults,4.48,9327,133.365107,-19.415494,133.4,-16.1,133.4,-17.7,top
+NT,Northern Territory,Australian football,Children,3.55,1880,133.365107,-19.415494,133.4,-16.1,133.4,-17.7,top
+NT,Northern Territory,Rugby league,Adults,1.08,2254,133.365107,-19.415494,133.4,-16.1,133.4,-17.7,top
+NT,Northern Territory,Rugby league,Children,5.04,2671,133.365107,-19.415494,133.4,-16.1,133.4,-17.7,top
+QLD,Queensland,Australian football,Adults,1.34,61984,144.545245,-22.569243,149.2,-20.9,147.0,-21.8,right
+QLD,Queensland,Australian football,Children,4.16,41991,144.545245,-22.569243,149.2,-20.9,147.0,-21.8,right
+QLD,Queensland,Rugby league,Adults,1.29,59741,144.545245,-22.569243,149.2,-20.9,147.0,-21.8,right
+QLD,Queensland,Rugby league,Children,3.4,34354,144.545245,-22.569243,149.2,-20.9,147.0,-21.8,right
+SA,South Australia,Australian football,Adults,3.53,55771,135.826381,-30.111398,132.4,-29.1,134.1,-29.7,left
+SA,South Australia,Australian football,Children,8.25,25795,135.826381,-30.111398,132.4,-29.1,134.1,-29.7,left
+SA,South Australia,Rugby league,Adults,0.11,1795,135.826381,-30.111398,132.4,-29.1,134.1,-29.7,left
+SA,South Australia,Rugby league,Children,0.0,0,135.826381,-30.111398,132.4,-29.1,134.1,-29.7,left
+TAS,Tasmania,Australian football,Adults,2.72,13153,146.594255,-41.939555,148.6,-41.2,147.5,-41.7,right
+TAS,Tasmania,Australian football,Children,8.3,7683,146.594255,-41.939555,148.6,-41.2,147.5,-41.7,right
+TAS,Tasmania,Rugby league,Adults,0.08,399,146.594255,-41.939555,148.6,-41.2,147.5,-41.7,right
+TAS,Tasmania,Rugby league,Children,0.0,0,146.594255,-41.939555,148.6,-41.2,147.5,-41.7,right
+VIC,Victoria,Australian football,Adults,3.84,222899,144.298223,-36.852578,141.3,-37.7,142.8,-37.2,left
+VIC,Victoria,Australian football,Children,10.06,123449,144.298223,-36.852578,141.3,-37.7,142.8,-37.2,left
+VIC,Victoria,Rugby league,Adults,0.23,13594,144.298223,-36.852578,141.3,-37.7,142.8,-37.2,left
+VIC,Victoria,Rugby league,Children,0.24,2932,144.298223,-36.852578,141.3,-37.7,142.8,-37.2,left
+WA,Western Australia,Australian football,Adults,4.04,99754,122.18025,-25.477031,125.5,-23.7,124.0,-24.6,right
+WA,Western Australia,Australian football,Children,8.04,44002,122.18025,-25.477031,125.5,-23.7,124.0,-24.6,right
+WA,Western Australia,Rugby league,Adults,0.46,11410,122.18025,-25.477031,125.5,-23.7,124.0,-24.6,right
+WA,Western Australia,Rugby league,Children,0.54,2964,122.18025,-25.477031,125.5,-23.7,124.0,-24.6,right

@@ -1,0 +1,479 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Proportional symbol map of estimated Australian football or rugby league participants by state and territory, with external labels and leader lines.",
+  "width": "container",
+  "height": 520,
+  "background": null,
+  "projection": {
+    "type": "mercator"
+  },
+  "params": [
+    {
+      "name": "sportSelect",
+      "value": "Australian football",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Australian football",
+          "Rugby league"
+        ],
+        "name": "Sport: "
+      }
+    },
+    {
+      "name": "groupSelect",
+      "value": "Adults",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adults",
+          "Children"
+        ],
+        "name": "Population group: "
+      }
+    }
+  ],
+  "layer": [
+    {
+      "data": {
+        "url": "spatial/australia_states_2021.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EEEAE2",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.3
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#344450",
+        "strokeWidth": 1.15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "elbow_longitude"
+        },
+        "latitude2": {
+          "field": "elbow_latitude"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "stroke": "#344450",
+        "strokeWidth": 1.15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "elbow_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "elbow_latitude",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "label_longitude"
+        },
+        "latitude2": {
+          "field": "label_latitude"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.6
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "estimated_participants",
+          "type": "quantitative",
+          "title": "Estimated Participants",
+          "scale": {
+            "range": [
+              180,
+              5000
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+            "symbolFillColor": {
+              "expr": "sportSelect === 'Australian football' ? '#174A7E' : '#C65D39'"
+            },
+            "symbolStrokeColor": "#FFFFFF",
+            "symbolStrokeWidth": 1.5
+          }
+        },
+        "color": {
+          "field": "sport",
+          "type": "nominal",
+          "title": "Sport",
+          "scale": {
+            "domain": [
+              "Australian football",
+              "Rugby league"
+            ],
+            "range": [
+              "#174A7E",
+              "#C65D39"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state_name",
+            "type": "nominal",
+            "title": "State / Territory"
+          },
+          {
+            "field": "sport",
+            "type": "nominal",
+            "title": "Sport"
+          },
+          {
+            "field": "population_group",
+            "type": "nominal",
+            "title": "Population Group"
+          },
+          {
+            "field": "estimated_participants",
+            "type": "quantitative",
+            "title": "Estimated Participants",
+            "format": ",d"
+          },
+          {
+            "field": "participation_pct",
+            "type": "quantitative",
+            "title": "Participation Rate (%)",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'right'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "fill": "#17212B",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 5,
+        "dy": -2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_code",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'right'"
+        },
+        {
+          "calculate": "format(datum.estimated_participants, ',d')",
+          "as": "participant_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fill": "#344450",
+        "align": "left",
+        "baseline": "top",
+        "dx": 5,
+        "dy": 2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "participant_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'left'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "fill": "#17212B",
+        "align": "right",
+        "baseline": "bottom",
+        "dx": -5,
+        "dy": -2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_code",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'left'"
+        },
+        {
+          "calculate": "format(datum.estimated_participants, ',d')",
+          "as": "participant_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fill": "#344450",
+        "align": "right",
+        "baseline": "top",
+        "dx": -5,
+        "dy": 2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "participant_label",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'top'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "fill": "#17212B",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -4
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_code",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/v07_participation_symbols.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.sport == sportSelect"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        },
+        {
+          "filter": "datum.label_side == 'top'"
+        },
+        {
+          "calculate": "format(datum.estimated_participants, ',d')",
+          "as": "participant_label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "font": "Arial",
+        "fontSize": 12,
+        "fontWeight": "normal",
+        "fill": "#344450",
+        "align": "center",
+        "baseline": "top",
+        "dy": 2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "label_longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "label_latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "participant_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial"
+  }
+}
