@@ -231,6 +231,17 @@ body {
   width: 100%;
 }
 
+/* Visualisation 8 */
+
+#vis8 {
+  width: 100%;
+  min-height: 500px;
+}
+
+#vis8 .vega-embed {
+  width: 100%;
+}
+
 .chart-note {
   max-width: 760px;
 

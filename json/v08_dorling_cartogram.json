@@ -1,0 +1,363 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Side-by-side Dorling-style cartograms comparing estimated Australian football and rugby league participation by state and territory. State abbreviations are displayed inside each circle; exact values remain available in tooltips.",
+  "background": null,
+  "data": {
+    "url": "data/v08_dorling_cartogram.csv"
+  },
+  "params": [
+    {
+      "name": "groupSelect",
+      "value": "Adults",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adults",
+          "Children"
+        ],
+        "name": "Population group: "
+      }
+    }
+  ],
+  "hconcat": [
+    {
+      "title": {
+        "text": "Australian football",
+        "font": "Arial",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "#17212B",
+        "anchor": "middle",
+        "offset": 12
+      },
+      "width": 470,
+      "height": 440,
+      "transform": [
+        {
+          "filter": "datum.sport == 'Australian football'"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "opacity": 0.84,
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.8,
+            "color": "#174A7E"
+          },
+          "encoding": {
+            "x": {
+              "field": "cartogram_x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  100
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "cartogram_y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  100,
+                  0
+                ]
+              },
+              "axis": null
+            },
+            "size": {
+              "field": "estimated_participants",
+              "type": "quantitative",
+              "title": "Estimated Participants",
+              "scale": {
+                "domain": [
+                  0,
+                  230000
+                ],
+                "range": [
+                  180,
+                  8500
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "state_name",
+                "type": "nominal",
+                "title": "State / Territory"
+              },
+              {
+                "field": "sport",
+                "type": "nominal",
+                "title": "Sport"
+              },
+              {
+                "field": "population_group",
+                "type": "nominal",
+                "title": "Population Group"
+              },
+              {
+                "field": "estimated_participants",
+                "type": "quantitative",
+                "title": "Estimated Participants",
+                "format": ",d"
+              },
+              {
+                "field": "participation_pct",
+                "type": "quantitative",
+                "title": "Participation Rate (%)",
+                "format": ".2f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "font": "Arial",
+            "fontWeight": "bold",
+            "align": "center",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "x": {
+              "field": "cartogram_x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  100
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "cartogram_y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  100,
+                  0
+                ]
+              },
+              "axis": null
+            },
+            "text": {
+              "field": "state_code",
+              "type": "nominal"
+            },
+            "color": {
+              "value": "#FFFFFF"
+            },
+            "size": {
+              "condition": [
+                {
+                  "test": "datum.estimated_participants >= 150000",
+                  "value": 15
+                },
+                {
+                  "test": "datum.estimated_participants >= 70000",
+                  "value": 13
+                },
+                {
+                  "test": "datum.estimated_participants >= 25000",
+                  "value": 11
+                },
+                {
+                  "test": "datum.estimated_participants >= 8000",
+                  "value": 9
+                }
+              ],
+              "value": 8
+            }
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "Rugby league",
+        "font": "Arial",
+        "fontSize": 15,
+        "fontWeight": "bold",
+        "color": "#17212B",
+        "anchor": "middle",
+        "offset": 12
+      },
+      "width": 470,
+      "height": 440,
+      "transform": [
+        {
+          "filter": "datum.sport == 'Rugby league'"
+        },
+        {
+          "filter": "datum.population_group == groupSelect"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "circle",
+            "opacity": 0.84,
+            "stroke": "#FFFFFF",
+            "strokeWsizdth": 1.8,
+            "color": "#C65D39"
+          },
+          "encoding": {
+            "x": {
+              "field": "cartogram_x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  100
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "cartogram_y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  100,
+                  0
+                ]
+              },
+              "axis": null
+            },
+            "size": {
+              "field": "estimated_participants",
+              "type": "quantitative",
+              "title": "Estimated Participants",
+              "scale": {
+                "domain": [
+                  0,
+                  230000
+                ],
+                "range": [
+                  180,
+                  8500
+                ]
+              },
+              "legend": null
+            },
+            "tooltip": [
+              {
+                "field": "state_name",
+                "type": "nominal",
+                "title": "State / Territory"
+              },
+              {
+                "field": "sport",
+                "type": "nominal",
+                "title": "Sport"
+              },
+              {
+                "field": "population_group",
+                "type": "nominal",
+                "title": "Population Group"
+              },
+              {
+                "field": "estimated_participants",
+                "type": "quantitative",
+                "title": "Estimated Participants",
+                "format": ",d"
+              },
+              {
+                "field": "participation_pct",
+                "type": "quantitative",
+                "title": "Participation Rate (%)",
+                "format": ".2f"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "font": "Arial",
+            "fontWeight": "bold",
+            "align": "center",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "x": {
+              "field": "cartogram_x",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  0,
+                  100
+                ]
+              },
+              "axis": null
+            },
+            "y": {
+              "field": "cartogram_y",
+              "type": "quantitative",
+              "scale": {
+                "domain": [
+                  100,
+                  0
+                ]
+              },
+              "axis": null
+            },
+            "text": {
+              "field": "state_code",
+              "type": "nominal"
+            },
+            "color": {
+              "value": "#FFFFFF"
+            },
+            "size": {
+              "condition": [
+                {
+                  "test": "datum.estimated_participants >= 150000",
+                  "value": 15
+                },
+                {
+                  "test": "datum.estimated_participants >= 70000",
+                  "value": 13
+                },
+                {
+                  "test": "datum.estimated_participants >= 25000",
+                  "value": 11
+                },
+                {
+                  "test": "datum.estimated_participants >= 8000",
+                  "value": 9
+                }
+              ],
+              "value": 8
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "spacing": 28,
+  "resolve": {
+    "scale": {
+      "size": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Arial",
+    "concat": {
+      "spacing": 28
+    }
+  }
+}

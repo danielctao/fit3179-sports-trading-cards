@@ -164,3 +164,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 8
+// Dorling cartogram comparison
+// =====================================================
+
+vegaEmbed(
+  "#vis8",
+  "json/v08_dorling_cartogram.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 8 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 8:",
+      error
+    );
+  });
