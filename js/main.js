@@ -168,12 +168,12 @@ vegaEmbed(
 
 // =====================================================
 // VISUALISATION 8
-// Dorling cartogram comparison
+// Contiguous cartogram
 // =====================================================
 
 vegaEmbed(
   "#vis8",
-  "json/v08_dorling_cartogram.json",
+  "json/v08_contiguous_cartogram_vega.json",
   {
     actions: false,
     renderer: "svg"

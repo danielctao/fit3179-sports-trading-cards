@@ -1,0 +1,410 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Side-by-side contiguous cartograms comparing Australian football and rugby league participation. Geographic area is distorted according to estimated participant numbers, while colour luminance represents participation rate.",
+  "width": 1020,
+  "height": 490,
+  "padding": 5,
+
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+
+  "signals": [
+    {
+      "name": "groupSelect",
+      "value": "Adults",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Adults",
+          "Children"
+        ],
+        "name": "Population group: "
+      }
+    }
+  ],
+
+  "data": [
+    {
+      "name": "source",
+      "url": "data/v08_contiguous_cartogram_vega_data.json",
+      "format": {
+        "type": "json"
+      }
+    },
+
+    {
+      "name": "afl",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.sport === 'Australian football' && datum.population_group === groupSelect"
+        }
+      ]
+    },
+
+    {
+      "name": "nrl",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.sport === 'Rugby league' && datum.population_group === groupSelect"
+        }
+      ]
+    }
+  ],
+
+  "marks": [
+
+    {
+      "type": "group",
+      "name": "aflPanel",
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 36
+          },
+          "width": {
+            "value": 500
+          },
+          "height": {
+            "value": 440
+          }
+        }
+      },
+
+      "scales": [
+        {
+          "name": "aflRate",
+          "type": "threshold",
+          "domain": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "range": [
+            "#EAF3FB",
+            "#CFE2F3",
+            "#9CC3E3",
+            "#6097C5",
+            "#174A7E"
+          ]
+        }
+      ],
+
+      "legends": [
+        {
+          "fill": "aflRate",
+          "type": "symbol",
+
+          "title": "Participation Rate (%)",
+
+          "orient": "none",
+          "legendX": 350,
+          "legendY": 40,
+
+          "direction": "vertical",
+
+          "symbolType": "square",
+          "symbolSize": 110,
+
+          "titleFont": "Arial",
+          "titleFontSize": 11,
+          "titleFontWeight": "bold",
+          "titleColor": "#17212B",
+
+          "labelFont": "Arial",
+          "labelFontSize": 10,
+          "labelColor": "#52606B",
+
+          "format": ".1f",
+
+          "padding": 4
+        }
+      ],
+
+      "marks": [
+
+        {
+          "type": "text",
+
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 250
+              },
+              "y": {
+                "value": -15
+              },
+              "align": {
+                "value": "center"
+              },
+              "baseline": {
+                "value": "middle"
+              },
+              "text": {
+                "value": "Australian Football"
+              },
+              "font": {
+                "value": "Arial"
+              },
+              "fontSize": {
+                "value": 15
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#17212B"
+              }
+            }
+          }
+        },
+
+        {
+          "type": "path",
+
+          "from": {
+            "data": "afl"
+          },
+
+          "encode": {
+
+            "enter": {
+              "x": {
+                "value": -40
+              },
+              "y": {
+                "value": 40
+              },
+              "path": {
+                "field": "path"
+              },
+
+              "fill": {
+                "scale": "aflRate",
+                "field": "participation_pct"
+              },
+
+              "stroke": {
+                "value": "#59636E"
+              },
+
+              "strokeWidth": {
+                "value": 1
+              },
+
+              "tooltip": {
+                "signal": "{'State / Territory': datum.state_name, 'Estimated Participants': format(datum.estimated_participants, ','), 'Participation Rate (%)': format(datum.participation_pct, '.2f'), 'Population Group': datum.population_group}"
+              }
+            },
+
+            "update": {
+              "fillOpacity": {
+                "value": 1
+              },
+
+              "strokeWidth": {
+                "value": 1
+              }
+            },
+
+            "hover": {
+              "fillOpacity": {
+                "value": 0.8
+              },
+
+              "strokeWidth": {
+                "value": 2
+              }
+            }
+          }
+        }
+      ]
+    },
+
+    {
+      "type": "group",
+      "name": "nrlPanel",
+
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 520
+          },
+          "y": {
+            "value": 36
+          },
+          "width": {
+            "value": 500
+          },
+          "height": {
+            "value": 440
+          }
+        }
+      },
+
+      "scales": [
+        {
+          "name": "nrlRate",
+          "type": "threshold",
+          "domain": [
+            1,
+            2,
+            4,
+            6
+          ],
+          "range": [
+            "#FFF3E8",
+            "#FDD9BF",
+            "#F6B58C",
+            "#E9875C",
+            "#C65D39"
+          ]
+        }
+      ],
+
+      "legends": [
+        {
+          "fill": "nrlRate",
+          "type": "symbol",
+
+          "title": "Participation Rate (%)",
+
+          "orient": "none",
+          "legendX": 350,
+          "legendY": 40,
+
+          "direction": "vertical",
+
+          "symbolType": "square",
+          "symbolSize": 110,
+
+          "titleFont": "Arial",
+          "titleFontSize": 11,
+          "titleFontWeight": "bold",
+          "titleColor": "#17212B",
+
+          "labelFont": "Arial",
+          "labelFontSize": 10,
+          "labelColor": "#52606B",
+
+          "format": ".1f",
+
+          "padding": 4
+        }
+      ],
+
+      "marks": [
+
+        {
+          "type": "text",
+
+          "encode": {
+            "enter": {
+              "x": {
+                "value": 250
+              },
+              "y": {
+                "value": -15
+              },
+              "align": {
+                "value": "center"
+              },
+              "baseline": {
+                "value": "middle"
+              },
+              "text": {
+                "value": "Rugby League"
+              },
+              "font": {
+                "value": "Arial"
+              },
+              "fontSize": {
+                "value": 15
+              },
+              "fontWeight": {
+                "value": "bold"
+              },
+              "fill": {
+                "value": "#17212B"
+              }
+            }
+          }
+        },
+
+        {
+          "type": "path",
+
+          "from": {
+            "data": "nrl"
+          },
+
+          "encode": {
+
+            "enter": {
+              "x": {
+                "value": -40
+              },
+              "y": {
+                "value": 40
+              },
+              "path": {
+                "field": "path"
+              },
+
+              "fill": {
+                "scale": "nrlRate",
+                "field": "participation_pct"
+              },
+
+              "stroke": {
+                "value": "#59636E"
+              },
+
+              "strokeWidth": {
+                "value": 1
+              },
+
+              "tooltip": {
+                "signal": "{'State / Territory': datum.state_name, 'Estimated Participants': format(datum.estimated_participants, ','), 'Participation Rate (%)': format(datum.participation_pct, '.2f'), 'Population Group': datum.population_group}"
+              }
+            },
+
+            "update": {
+              "fillOpacity": {
+                "value": 1
+              },
+
+              "strokeWidth": {
+                "value": 1
+              }
+            },
+
+            "hover": {
+              "fillOpacity": {
+                "value": 0.8
+              },
+
+              "strokeWidth": {
+                "value": 2
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+
+  "config": {
+    "background": null
+  }
+}
