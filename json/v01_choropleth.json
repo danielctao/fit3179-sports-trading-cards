@@ -1,9 +1,13 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "description": "Diverging choropleth comparing Australian football and rugby league participation rates by Australian state and territory.",
+
   "width": "container",
-  "height": 520,
+  "height": 550,
+
   "background": null,
+
   "params": [
     {
       "name": "populationGroup",
@@ -18,6 +22,7 @@
       }
     }
   ],
+
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -35,6 +40,7 @@
     ],
     "scale": 850
   },
+
   "layer": [
     {
       "data": {
@@ -44,6 +50,7 @@
           "property": "features"
         }
       },
+
       "transform": [
         {
           "lookup": "properties.state_code",
@@ -67,88 +74,126 @@
             ]
           }
         },
+
         {
           "calculate": "populationGroup == 'Adults' ? datum.adult_afl_pct : datum.child_afl_pct",
           "as": "selected_afl_pct"
         },
+
         {
           "calculate": "populationGroup == 'Adults' ? datum.adult_nrl_pct : datum.child_nrl_pct",
           "as": "selected_nrl_pct"
         },
+
         {
           "calculate": "populationGroup == 'Adults' ? datum.adult_difference_pp : datum.child_difference_pp",
           "as": "selected_difference_pp"
         },
+
         {
           "calculate": "populationGroup == 'Adults' ? datum.adult_afl_participants : datum.child_afl_participants",
           "as": "selected_afl_participants"
         },
+
         {
           "calculate": "populationGroup == 'Adults' ? datum.adult_nrl_participants : datum.child_nrl_participants",
           "as": "selected_nrl_participants"
         },
+
         {
           "calculate": "datum.selected_difference_pp > 0.05 ? 'Australian football' : datum.selected_difference_pp < -0.05 ? 'Rugby league' : 'Approximately balanced'",
           "as": "higher_participation"
         }
       ],
+
       "mark": {
         "type": "geoshape",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 1.2
+
+        "stroke": "#373737",
+        "strokeWidth": 1
       },
+
       "encoding": {
         "shape": {
           "field": "geometry",
           "type": "geojson"
         },
+
         "color": {
           "field": "selected_difference_pp",
           "type": "quantitative",
+
           "title": "Participation Difference (percentage points)",
+
           "scale": {
             "domain": [
               -10,
               0,
               10
             ],
+
             "range": [
-              "#C44E36",
-              "#F4F0E8",
-              "#174A7E"
-            ]
+              "#ABEA87",
+              "#15BFA1",
+              "#005E7D"
+            ],
+
+            "clamp": true
           },
+
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
+
             "gradientLength": 300,
-            "titleLimit": 420
+            "gradientThickness": 14,
+
+            "titleLimit": 420,
+
+            "titleColor": "#F4F7FA",
+            "labelColor": "#A9B7C4",
+
+            "titleFont": "DM Sans",
+            "labelFont": "DM Sans",
+
+            "titleFontSize": 12,
+            "labelFontSize": 11,
+
+            "titleFontWeight": 600,
+
+            "gradientStrokeColor": "#334A5E",
+            "gradientStrokeWidth": 1
           }
         },
+
         "tooltip": [
           {
             "field": "state_name",
             "type": "nominal",
             "title": "State / Territory"
           },
+
           {
             "field": "selected_afl_pct",
             "type": "quantitative",
             "title": "Australian Football (%)",
             "format": ".2f"
           },
+
           {
             "field": "selected_nrl_pct",
             "type": "quantitative",
             "title": "Rugby League (%)",
             "format": ".2f"
           },
+
           {
             "field": "selected_difference_pp",
             "type": "quantitative",
             "title": "Difference (pp)",
             "format": "+.2f"
           },
+
           {
             "field": "higher_participation",
             "type": "nominal",
@@ -157,28 +202,31 @@
         ]
       }
     },
+
     {
       "data": {
         "url": "data/v01_state_labels.csv"
       },
+
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 13,
-        "fontWeight": "bold",
-        "fill": "#17212B",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 0.5
+        "fontWeight": "normal",
+        "fill": "#000000"
       },
+
       "encoding": {
         "longitude": {
           "field": "longitude",
           "type": "quantitative"
         },
+
         "latitude": {
           "field": "latitude",
           "type": "quantitative"
         },
+
         "text": {
           "field": "state_code",
           "type": "nominal"
@@ -186,13 +234,22 @@
       }
     }
   ],
+
   "config": {
     "view": {
       "stroke": null
     },
-    "font": "Arial",
+
+    "font": "DM Sans",
+
     "legend": {
-      "labelFontSize": 12,
+      "labelFont": "DM Sans",
+      "titleFont": "DM Sans",
+
+      "labelColor": "#A9B7C4",
+      "titleColor": "#F4F7FA",
+
+      "labelFontSize": 11,
       "titleFontSize": 12
     }
   }

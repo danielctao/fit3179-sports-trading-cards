@@ -188,3 +188,27 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 9
+// Player Position × Card Category Family Chord Diagram
+// =====================================================
+
+vegaEmbed(
+  "#vis9",
+  "json/v09_position_category_chord.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+  .then(function (result) {
+    console.log("Visualisation 9 loaded successfully.");
+  })
+  .catch(function (error) {
+    console.error(
+      "Error loading Visualisation 9:",
+      error
+    );
+  });

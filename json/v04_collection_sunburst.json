@@ -11,7 +11,7 @@
   "signals": [
     {
       "name": "cx",
-      "update": "width * 0.42"
+      "update": "width * 0.38"
     },
     {
       "name": "cy",
@@ -69,13 +69,13 @@
         "Prize / Promotion"
       ],
       "range": [
-        "#294F73",
-        "#B56A4A",
-        "#6F8F72",
-        "#6D5A8D",
-        "#3D7C86",
-        "#A94F6D",
-        "#8A775E"
+        "#2F80ED",
+        "#00B8D9",
+        "#5E60CE",
+        "#8A4FFF",
+        "#D84FD3",
+        "#FF5CA8",
+        "#B9C8D9"
       ]
     }
   ],
@@ -83,20 +83,27 @@
   {
     "fill": "familyColor",
     "title": "Category Family",
+
     "orient": "none",
-    "legendX": 670,
+    "legendX": 640,
     "legendY": 60,
 
-    "labelFont": "Arial",
+    "labelFont": "DM Sans",
     "labelFontSize": 12,
+    "labelColor": "#F5F7F8",
+    "labelLimit": 280,
 
-    "titleFont": "Arial",
+    "titleFont": "DM Sans",
     "titleFontSize": 13,
     "titleFontWeight": "bold",
+    "titleColor": "#F5F7F8",
 
-    "symbolType": "square"
+    "symbolType": "square",
+    "symbolSize": 100,
+
+    "rowPadding": 5
   }
-  ],
+],
   "marks": [
     {
       "type": "arc",
@@ -190,7 +197,7 @@
         },
         "update": {
           "opacity": {
-            "value": 0.72
+            "value": 0.55
           }
         },
         "hover": {
@@ -220,7 +227,7 @@
             "value": "2026"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 28
@@ -229,7 +236,7 @@
             "value": "bold"
           },
           "fill": {
-            "value": "#17212B"
+            "value": "#F5F7F8"
           }
         }
       }
@@ -254,13 +261,13 @@
             "value": "2,284 designs"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 13
           },
           "fill": {
-            "value": "#66717C"
+            "value": "#C3CDD3"
           }
         }
       }

@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Sankey-style alluvial diagram showing AFL Footy Stars checklist categories flowing from release year to analytical category family to scarcity signal.",
   "width": 950,
-  "height": 530,
+  "height": 550,
   "padding": 10,
   "autosize": {
     "type": "fit",
@@ -34,6 +34,51 @@
       }
     }
   ],
+  "scales": [
+  {
+    "name": "familyColor",
+    "type": "ordinal",
+
+    "domain": [
+      "Base",
+      "Character / Illustrated",
+      "Player Feature / Performance",
+      "Parallel / Variant",
+      "Predictor / Redemption",
+      "Premium / Limited",
+      "Signature / Patch",
+      "Prize / Promotion"
+    ],
+
+    "range": [
+      "#2F80ED",
+      "#00B8D9",
+      "#5E60CE",
+      "#8A4FFF",
+      "#B44CFF",
+      "#D84FD3",
+      "#FF5CA8",
+      "#B9C8D9"
+    ]
+  },
+
+  {
+    "name": "statusColor",
+    "type": "ordinal",
+
+    "domain": [
+      "Serial-numbered",
+      "Pack odds only",
+      "Neither stated"
+    ],
+
+    "range": [
+      "#758A98",
+      "#5D7280",
+      "#465A68"
+    ]
+  }
+],
   "marks": [
     {
       "type": "text",
@@ -49,7 +94,7 @@
             "value": "RELEASE YEAR"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 12
@@ -58,7 +103,7 @@
             "value": "bold"
           },
           "fill": {
-            "value": "#66717C"
+            "value": "#C3CDD3"
           }
         }
       }
@@ -77,7 +122,7 @@
             "value": "CATEGORY FAMILY"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 12
@@ -86,7 +131,7 @@
             "value": "bold"
           },
           "fill": {
-            "value": "#66717C"
+            "value": "#C3CDD3"
           }
         }
       }
@@ -105,7 +150,7 @@
             "value": "SCARCITY SIGNAL"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 12
@@ -114,7 +159,7 @@
             "value": "bold"
           },
           "fill": {
-            "value": "#66717C"
+            "value": "#C3CDD3"
           }
         }
       }
@@ -124,30 +169,44 @@
       "from": {
         "data": "links"
       },
+
       "encode": {
         "enter": {
           "path": {
             "field": "path"
           },
+
           "fill": {
-            "field": "fill"
+            "scale": "familyColor",
+            "field": "family"
           },
+
           "fillOpacity": {
-            "value": 0.42
+            "value": 0.65
           },
+
           "stroke": {
-            "value": "#FFFFFF"
+            "value": "#F5F7F8"
           },
+
           "strokeOpacity": {
-            "value": 0.18
+            "value": 0.12
           },
+
           "tooltip": {
             "signal": "{'Flow': datum.stage, 'From': datum.source, 'To': datum.target, 'Distinct Categories': datum.count}"
           }
         },
+
+        "update": {
+          "fillOpacity": {
+            "value": 0.65
+          }
+        },
+
         "hover": {
           "fillOpacity": {
-            "value": 0.78
+            "value": 0.82
           }
         }
       }
@@ -172,13 +231,13 @@
             "field": "y1"
           },
           "fill": {
-            "field": "fill"
+            "signal": "datum.stage === 'Family' ? scale('familyColor', datum.key) : datum.stage === 'Status' ? scale('statusColor', datum.key) : '#394D5A'"
           },
           "stroke": {
             "value": "#FFFFFF"
           },
           "strokeWidth": {
-            "value": 1
+            "value": 0.65
           },
           "cornerRadius": {
             "value": 2
@@ -212,7 +271,7 @@
             "signal": "datum.label + '  ' + datum.count"
           },
           "font": {
-            "value": "Arial"
+            "value": "DM Sans"
           },
           "fontSize": {
             "value": 11
@@ -221,7 +280,7 @@
             "signal": "datum.stage === 'Family' ? 'normal' : 'bold'"
           },
           "fill": {
-            "value": "#17212B"
+            "value": "#F5F7F8"
           }
         }
       }

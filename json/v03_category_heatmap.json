@@ -10,26 +10,21 @@
   "layer": [
     {
       "mark": {
-        "type": "rect",
-        "stroke": "#FFFFFF",
-        "strokeWidth": 2
+        "type": "rect"
       },
       "encoding": {
         "x": {
           "field": "year",
           "type": "ordinal",
-          "sort": [
-            "2020",
-            "2022",
-            "2024",
-            "2026"
-          ],
+          "sort": ["2020", "2022", "2024", "2026"],
           "axis": {
             "orient": "top",
             "title": null,
             "labelAngle": 0,
+            "labelFont": "DM Sans",
             "labelFontSize": 13,
             "labelFontWeight": "bold",
+            "labelColor": "#F5F7F8",
             "ticks": false,
             "domain": false
           }
@@ -49,7 +44,9 @@
           ],
           "axis": {
             "title": null,
+            "labelFont": "DM Sans",
             "labelFontSize": 12,
+            "labelColor": "#F5F7F8",
             "labelLimit": 240,
             "ticks": false,
             "domain": false
@@ -60,19 +57,28 @@
           "type": "quantitative",
           "title": "Number of Categories",
           "scale": {
-            "domain": [
-              0,
-              9
-            ],
+            "domain": [0, 9],
             "range": [
-              "#F4F0E8",
-              "#174A7E"
+              "#F2D66B",
+              "#EFA94A",
+              "#EB7A28",
+              "#DE5B1F",
+              "#C9451E",
+              "#9E331C"
             ]
           },
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "gradientLength": 260
+            "gradientLength": 260,
+            "gradientThickness": 14,
+            "titleFont": "DM Sans",
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "titleColor": "#F5F7F8",
+            "labelFont": "DM Sans",
+            "labelFontSize": 11,
+            "labelColor": "#D9D9D9"
           }
         },
         "tooltip": [
@@ -114,6 +120,7 @@
       ],
       "mark": {
         "type": "text",
+        "font": "DM Sans",
         "fontSize": 13,
         "fontWeight": "bold"
       },
@@ -121,12 +128,7 @@
         "x": {
           "field": "year",
           "type": "ordinal",
-          "sort": [
-            "2020",
-            "2022",
-            "2024",
-            "2026"
-          ]
+          "sort": ["2020", "2022", "2024", "2026"]
         },
         "y": {
           "field": "family",
@@ -149,9 +151,9 @@
         "color": {
           "condition": {
             "test": "datum.category_count >= 5",
-            "value": "#FFFFFF"
+            "value": "#F5F7F8"
           },
-          "value": "#17212B"
+          "value": "#1F4260"
         }
       }
     }
@@ -160,6 +162,6 @@
     "view": {
       "stroke": null
     },
-    "font": "Arial"
+    "font": "DM Sans"
   }
 }

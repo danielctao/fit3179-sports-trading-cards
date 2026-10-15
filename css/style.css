@@ -1,4 +1,29 @@
 /* =====================================================
+   DESIGN SYSTEM
+   ===================================================== */
+
+:root {
+  /* Interface colours */
+  --page-bg: #2E2E2E;
+  --surface: #4B4B4B;
+  --surface-card: #4B4B4B;
+  --divider: #334a5e;
+
+  /* Text colours */
+  --text-primary: #faf9f3;
+  --text-secondary: #d6d6d3;
+  --text-muted: #7f91a2;
+
+  /* Interface accent only */
+  --ui-accent: #EAFF2E;
+
+  /* Typography */
+  --font-display: "Merriweather", Georgia, serif;
+  --font-body: "DM Sans", Arial, sans-serif;
+}
+
+
+/* =====================================================
    GLOBAL
    ===================================================== */
 
@@ -8,16 +33,17 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--page-bg);
 }
 
 body {
   margin: 0;
-  background: #f7f5ef;
-  color: #17212b;
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+
+  background: var(--page-bg);
+  color: var(--text-primary);
+
+  font-family: var(--font-body);
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -27,7 +53,7 @@ body {
    ===================================================== */
 
 .page-container {
-  width: min(1100px, 90%);
+  width: min(950px, 94%);
   margin: 0 auto;
 }
 
@@ -37,36 +63,44 @@ body {
    ===================================================== */
 
 .hero {
-  padding: 100px 0 80px;
-  background: #17212b;
-  color: #ffffff;
+  padding: 65px 0 65px;
+
+  background: var(--surface);
+  color: var(--text-primary);
 }
 
 .eyebrow {
-  margin: 0 0 18px;
-  font-size: 0.8rem;
+  margin: 0 0 20px;
+
+  font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  opacity: 0.7;
+
+  color: var(--ui-accent);
 }
 
 .hero h1 {
-  max-width: 900px;
+  max-width: 16ch;
   margin: 0;
 
-  font-size: clamp(3rem, 7vw, 6rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+
+  line-height: 1.02;
+  letter-spacing: -0.035em;
 }
 
 .hero-description {
-  max-width: 700px;
-  margin-top: 32px;
-  margin-bottom: 0;
+  max-width: 48ch;
 
-  font-size: 1.15rem;
-  color: #d6dbe0;
+  margin: 30px 0 0;
+
+  font-size: 1.08rem;
+  line-height: 1.75;
+
+  color: var(--text-secondary);
 }
 
 
@@ -75,199 +109,244 @@ body {
    ===================================================== */
 
 .story-section {
-  padding: 90px 0;
-}
+  padding: 50px 0;
 
-.section-alternate {
-  background: #ece9e1;
+  background: var(--page-bg);
+
+  border-bottom: 1px solid #808080;
 }
 
 .section-number {
-  margin-bottom: 10px;
+  margin: 0 0 14px;
 
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #66717c;
+
+  color: var(--ui-accent);
 }
 
 .story-section h2 {
-  max-width: 800px;
+  max-width: 20ch;
+
   margin: 0 0 20px;
 
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
-  line-height: 1.05;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  font-weight: 700;
+
+  line-height: 1.15;
   letter-spacing: -0.025em;
+
+  color: var(--text-primary);
 }
 
 .section-introduction {
-  max-width: 720px;
-  margin-bottom: 45px;
+  max-width: 48ch;
 
-  font-size: 1.08rem;
-  color: #52606b;
+  margin: 0 0 45px;
+
+  font-size: 1.05rem;
+  line-height: 1.75;
+
+  color: var(--text-secondary);
 }
 
 
 /* =====================================================
-   VISUALISATIONS
+   VISUALISATION SUBSECTIONS
+   ===================================================== */
+
+.visualisation-subsection {
+  margin-top: 65px;
+}
+
+.visualisation-subsection h3 {
+  max-width: 22ch;
+
+  margin: 0 0 18px;
+
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 700;
+
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  color: var(--text-primary);
+}
+
+.subsection-introduction {
+  max-width: 48ch;
+
+  margin: 0 0 40px;
+
+  font-size: 1.02rem;
+  line-height: 1.75;
+
+  color: var(--text-secondary);
+}
+
+
+/* =====================================================
+   VISUALISATION CARDS
    ===================================================== */
 
 .visualisation-card {
   width: 100%;
 
-  padding: 30px;
+  padding: 32px;
 
-  background: #ffffff;
-  border-radius: 8px;
+  background: var(--surface-card);
+
+  border-radius: 12px;
 }
 
-/* Visualisation 1 */
+/* Visualisation 5 needs extra horizontal space */
+
+.vis5-card {
+  width: 100%;
+}
+
+
+/* =====================================================
+   VEGA CONTAINERS
+   ===================================================== */
+
+#vis1,
+#vis2,
+#vis3,
+#vis4,
+#vis5,
+#vis6,
+#vis7,
+#vis8,
+#vis9 {
+  width: 100%;
+}
 
 #vis1 {
-  width: 100%;
   min-height: 550px;
 }
 
-#vis1 .vega-embed {
-  width: 100%;
-}
-
-/* Visualisation 2 */
-
 #vis2 {
-  width: 100%;
   min-height: 390px;
 }
 
-#vis2 .vega-embed {
-  width: 100%;
-}
-
-/* Visualisation 3 */
-
 #vis3 {
-  width: 100%;
   min-height: 430px;
 }
 
-#vis3 .vega-embed {
-  width: 100%;
-}
-
-.visualisation-subsection {
-  margin-top: 90px;
-}
-
-.visualisation-subsection h3 {
-  max-width: 800px;
-  margin: 0 0 18px;
-
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-}
-
-.subsection-introduction {
-  max-width: 720px;
-  margin-bottom: 40px;
-
-  font-size: 1.05rem;
-  color: #52606b;
-}
-
-.method-note {
-  max-width: 760px;
-  margin-top: 14px;
-
-  font-size: 0.78rem;
-  color: #7a838c;
-}
-
-/* Visualisation 4 */
-
 #vis4 {
-  width: 100%;
   min-height: 550px;
 }
 
-#vis4 .vega-embed {
-  width: 100%;
-}
-
-/* Visualisation 5 */
-
 #vis5 {
-  width: 100%;
   min-height: 560px;
 }
 
-#vis5 .vega-embed {
+#vis6 {
+  min-height: 470px;
+}
+
+#vis7 {
+  min-height: 570px;
+}
+
+#vis8 {
+  min-height: 500px;
+}
+
+#vis9 {
+  min-height: 550px;
+}
+
+
+/* All Vega visualisations */
+
+#vis1 .vega-embed,
+#vis2 .vega-embed,
+#vis3 .vega-embed,
+#vis4 .vega-embed,
+#vis5 .vega-embed,
+#vis6 .vega-embed,
+#vis7 .vega-embed,
+#vis8 .vega-embed,
+#vis9 .vega-embed {
   width: 100%;
+}
+
+
+/* V5 */
+
+#vis5 .vega-embed {
   display: flex;
   justify-content: center;
 }
 
-/* Visualisation 6 */
+/* Move ONLY the V5 Sankey drawing left */
 
-#vis6 {
-  width: 100%;
-  min-height: 470px;
+#vis5 svg {
+  transform: translateX(-45px);
 }
 
-#vis6 .vega-embed {
-  width: 100%;
+
+/* V9 */
+
+#vis9 .vega-embed {
+  display: flex;
+  justify-content: center;
 }
 
-/* Visualisation 7 */
 
-#vis7 {
-  width: 100%;
-  min-height: 570px;
-}
-
-#vis7 .vega-embed {
-  width: 100%;
-}
-
-/* Visualisation 8 */
-
-#vis8 {
-  width: 100%;
-  min-height: 500px;
-}
-
-#vis8 .vega-embed {
-  width: 100%;
-}
+/* =====================================================
+   CHART NOTES
+   ===================================================== */
 
 .chart-note {
-  max-width: 760px;
+  max-width: 58ch;
 
-  margin:
-    20px
-    auto
-    0;
+  margin: 28px 0 0;
+  padding: 2px 0 2px 18px;
 
-  padding-top: 18px;
+  border-left: 5px solid var(--ui-accent);
 
-  border-top: 1px solid #dddddd;
+  font-size: 0.9rem;
+  line-height: 1.7;
 
-  color: #56616b;
-  font-size: 0.92rem;
-}
-
-.source-note {
-  margin-top: 14px;
-
-  font-size: 0.78rem;
-  color: #7a838c;
+  color: var(--text-secondary);
 }
 
 .chart-note strong {
-  color: #17212b;
+  color: var(--text-primary);
   font-weight: 700;
+}
+
+/* V5 chart note adjustment */
+
+.vis5-card .chart-note {
+  margin-top: -5px;
+}
+
+
+/* =====================================================
+   METHOD + SOURCE NOTES
+   ===================================================== */
+
+.method-note,
+.source-note {
+  max-width: 58ch;
+
+  margin-top: 14px;
+
+  font-size: 0.78rem;
+  line-height: 1.65;
+
+  color: #DBDBDB;
+  opacity: 0.5;
+  
 }
 
 
@@ -278,15 +357,19 @@ body {
 @media (max-width: 700px) {
 
   .hero {
-    padding: 70px 0 55px;
+    padding: 75px 0 60px;
   }
 
   .story-section {
     padding: 65px 0;
   }
 
+  .visualisation-subsection {
+    margin-top: 70px;
+  }
+
   .visualisation-card {
-    padding: 16px;
+    padding: 18px;
   }
 
 }
@@ -306,31 +389,55 @@ body {
   table-layout: auto !important;
 }
 
-/* Keep tooltip labels on one line */
 #vg-tooltip-element td.key {
-  white-space: nowrap !important;
+  width: auto !important;
   max-width: none !important;
-  width: auto !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
+
   padding-right: 16px !important;
-}
 
-/* Normal tooltip values stay on one line */
-#vg-tooltip-element td.value {
   white-space: nowrap !important;
-  width: auto !important;
+
   overflow: visible !important;
   text-overflow: clip !important;
 }
 
-/* Allow the final Categories value to wrap */
+#vg-tooltip-element td.value {
+  width: auto !important;
+
+  white-space: nowrap !important;
+
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
 #vg-tooltip-element tr:last-child td.value {
-  white-space: normal !important;
-  max-width: 420px !important;
   min-width: 300px;
+  max-width: 420px !important;
+
+  white-space: normal !important;
+
   overflow-wrap: break-word !important;
   word-break: normal !important;
+
   text-overflow: clip !important;
+
   line-height: 1.4;
+}
+
+/* =====================================================
+   VEGA CONTROLS
+   ===================================================== */
+
+.vega-bindings select {
+  margin-left: 6px;
+  padding: 1px 2px;
+
+  background: #FFFFFF;
+  color: #000000;
+
+  border: 0px solid #007C92;
+  border-radius: 5px;
+
+  font-family: var(--font-body);
+  font-size: 0.9rem;
 }

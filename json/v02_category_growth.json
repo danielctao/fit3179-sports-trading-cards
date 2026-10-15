@@ -1,44 +1,66 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
   "description": "Line chart showing the number of AFL Footy Stars card categories in 2020, 2022, 2024 and 2026.",
+
   "width": "container",
   "height": 360,
+
   "background": null,
+
   "data": {
     "url": "data/v02_category_growth.csv"
   },
+
   "layer": [
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 3,
+        "strokeWidth": 4,
+
         "point": {
           "filled": true,
-          "size": 90
+          "size": 110
         }
       },
+
       "encoding": {
         "x": {
           "field": "year",
           "type": "ordinal",
           "title": "Release Year",
+
           "sort": [
             "2020",
             "2022",
             "2024",
             "2026"
           ],
+
           "axis": {
             "labelAngle": 0,
+
+            "labelFont": "DM Sans",
             "labelFontSize": 12,
+            "labelColor": "#C3CDD3",
+
+            "titleFont": "DM Sans",
             "titleFontSize": 12,
+            "titleFontWeight": 600,
+            "titleColor": "#F5F7F8",
+
+            "domainColor": "#73818A",
+            "tickColor": "#73818A",
+
             "grid": false
           }
         },
+
         "y": {
           "field": "category_count",
           "type": "quantitative",
           "title": "Number of Card Categories",
+
           "scale": {
             "zero": true,
             "domain": [
@@ -46,17 +68,32 @@
               30
             ]
           },
+
           "axis": {
             "tickMinStep": 5,
+
+            "labelFont": "DM Sans",
             "labelFontSize": 12,
+            "labelColor": "#C3CDD3",
+
+            "titleFont": "DM Sans",
             "titleFontSize": 12,
-            "gridColor": "#E3E0D8",
-            "gridOpacity": 0.8
+            "titleFontWeight": 600,
+            "titleColor": "#F5F7F8",
+
+            "domainColor": "#73818A",
+            "tickColor": "#73818A",
+
+            "gridColor": "#AAB5BC",
+            "gridOpacity": 0.2,
+            "gridWidth": 1
           }
         },
+
         "color": {
-          "value": "#174A7E"
+          "value": "#EB6C1C"
         },
+
         "tooltip": [
           {
             "field": "year",
@@ -76,18 +113,25 @@
         ]
       }
     },
+
     {
       "mark": {
         "type": "text",
-        "dy": -14,
+
+        "dy": -15,
+
+        "font": "DM Sans",
         "fontSize": 12,
         "fontWeight": "bold",
-        "color": "#17212B"
+
+        "color": "#F5F7F8"
       },
+
       "encoding": {
         "x": {
           "field": "year",
           "type": "ordinal",
+
           "sort": [
             "2020",
             "2022",
@@ -95,10 +139,12 @@
             "2026"
           ]
         },
+
         "y": {
           "field": "category_count",
           "type": "quantitative"
         },
+
         "text": {
           "field": "category_count",
           "type": "quantitative"
@@ -106,10 +152,12 @@
       }
     }
   ],
+
   "config": {
     "view": {
       "stroke": null
     },
-    "font": "Arial"
+
+    "font": "DM Sans"
   }
 }
