@@ -46,7 +46,7 @@
         "type": "geoshape",
         "fill": "#EEEAE2",
         "stroke": "#FFFFFF",
-        "strokeWidth": 1.3
+        "strokeWidth": 1
       }
     },
     {
@@ -131,9 +131,9 @@
       ],
       "mark": {
         "type": "circle",
-        "opacity": 0.8,
+        "opacity": 0.75,
         "stroke": "#FFFFFF",
-        "strokeWidth": 1.6
+        "strokeWidth": 0
       },
       "encoding": {
         "longitude": {
@@ -157,13 +157,17 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
+            "titleFont": "DM Sans",
+            "labelFont": "DM Sans",
             "titleFontSize": 12,
             "labelFontSize": 11,
+            "titleColor": "#F5F7F8",
+            "labelColor": "#F5F7F8",
             "symbolFillColor": {
-              "expr": "sportSelect === 'Australian football' ? '#174A7E' : '#C65D39'"
+              "expr": "sportSelect === 'Australian football' ? '#0F31F0' : '#F10E3B'"
             },
             "symbolStrokeColor": "#FFFFFF",
-            "symbolStrokeWidth": 1.5
+            "symbolStrokeWidth": 0.6
           }
         },
         "color": {
@@ -176,8 +180,8 @@
               "Rugby league"
             ],
             "range": [
-              "#174A7E",
-              "#C65D39"
+              "#0F31F0",
+              "#F10E3B"
             ]
           },
           "legend": null
@@ -230,10 +234,9 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 13,
         "fontWeight": "bold",
-        "fill": "#17212B",
         "align": "left",
         "baseline": "bottom",
         "dx": 5,
@@ -251,6 +254,14 @@
         "text": {
           "field": "state_code",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "indexof(['VIC','QLD','TAS','ACT','NSW'], datum.state_code) >= 0",
+            "value": "#FFFFFF"
+          },
+          "value": "#17212B",
+          "legend": null
         }
       }
     },
@@ -275,10 +286,9 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 12,
         "fontWeight": "normal",
-        "fill": "#344450",
         "align": "left",
         "baseline": "top",
         "dx": 5,
@@ -296,6 +306,14 @@
         "text": {
           "field": "participant_label",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "indexof(['VIC','QLD','TAS','ACT','NSW'], datum.state_code) >= 0",
+            "value": "#D6D6D3"
+          },
+          "value": "#344450",
+          "legend": null
         }
       }
     },
@@ -316,10 +334,9 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 13,
         "fontWeight": "bold",
-        "fill": "#17212B",
         "align": "right",
         "baseline": "bottom",
         "dx": -5,
@@ -337,6 +354,14 @@
         "text": {
           "field": "state_code",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "indexof(['VIC','QLD','TAS','ACT','NSW'], datum.state_code) >= 0",
+            "value": "#FFFFFF"
+          },
+          "value": "#17212B",
+          "legend": null
         }
       }
     },
@@ -361,10 +386,9 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 12,
         "fontWeight": "normal",
-        "fill": "#344450",
         "align": "right",
         "baseline": "top",
         "dx": -5,
@@ -382,6 +406,14 @@
         "text": {
           "field": "participant_label",
           "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "indexof(['VIC','QLD','TAS','ACT','NSW'], datum.state_code) >= 0",
+            "value": "#D6D6D3"
+          },
+          "value": "#344450",
+          "legend": null
         }
       }
     },
@@ -402,7 +434,7 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 13,
         "fontWeight": "bold",
         "fill": "#17212B",
@@ -446,7 +478,7 @@
       ],
       "mark": {
         "type": "text",
-        "font": "Arial",
+        "font": "DM Sans",
         "fontSize": 12,
         "fontWeight": "normal",
         "fill": "#344450",
@@ -474,6 +506,6 @@
     "view": {
       "stroke": null
     },
-    "font": "Arial"
+    "font": "DM Sans"
   }
 }

@@ -1,0 +1,217 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "description": "Chord diagram showing how matched 2026 AFL Footy Stars player card designs connect player positions with analytical card category families.",
+  "width": 900,
+  "height": 550,
+  "padding": 10,
+  "autosize": {
+    "type": "pad",
+    "contains": "padding"
+  },
+  "data": [
+    {
+      "name": "source",
+      "url": "data/v09_position_category_chord_data.json",
+      "format": {
+        "type": "json"
+      }
+    },
+    {
+      "name": "ribbons",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.record_type === 'ribbon'"
+        }
+      ]
+    },
+    {
+      "name": "nodes",
+      "source": "source",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.record_type === 'node'"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 145
+          },
+          "y": {
+            "value": 28
+          },
+          "text": {
+            "value": "PLAYER POSITION"
+          },
+          "font": {
+            "value": "DM Sans"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#F5F7F8"
+          },
+          "letterSpacing": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "enter": {
+          "x": {
+            "value": 650
+          },
+          "y": {
+            "value": 28
+          },
+          "text": {
+            "value": "CARD CATEGORY FAMILY"
+          },
+          "font": {
+            "value": "DM Sans"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#F5F7F8"
+          },
+          "letterSpacing": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {
+        "data": "ribbons"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "field": "fill"
+          },
+          "fillOpacity": {
+            "value": 0.5
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "tooltip": {
+            "signal": "{'Player Position': datum.position, 'Category Family': datum.category_family, 'Card Designs': datum.card_design_count, 'Share of Position (%)': format(datum.share_of_position_pct, '.1f'), 'Share of Family (%)': format(datum.share_of_family_pct, '.1f')}"
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "value": 0.65
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.88
+          }
+        }
+      }
+    },
+    {
+      "type": "path",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "field": "fill"
+          },
+          "stroke": {
+            "value": "#FFFFFF"
+          },
+          "strokeWidth": {
+            "value": 0
+          },
+          "tooltip": {
+            "signal": "datum.node_type === 'position' ? {'Player Position': datum.label, 'Matched Card Designs': datum.total} : {'Category Family': datum.label, 'Matched Player Card Designs': datum.total}"
+          }
+        },
+        "update": {
+          "fillOpacity": {
+            "value": 1.5
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.82
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "nodes"
+      },
+      "encode": {
+        "enter": {
+          "x": {
+            "field": "label_x"
+          },
+          "y": {
+            "field": "label_y"
+          },
+          "text": {
+            "field": "label"
+          },
+          "align": {
+            "field": "label_align"
+          },
+          "baseline": {
+            "value": "middle"
+          },
+          "font": {
+            "value": "DM Sans"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "value": "#F5F7F8"
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "background": null
+  }
+}

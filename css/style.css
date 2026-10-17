@@ -210,6 +210,13 @@ body {
   width: 100%;
 }
 
+/* Visualisation 8 needs extra horizontal space */
+
+.vis8-card {
+  width: calc(100% + 140px);
+  margin-left: -70px;
+}
+
 
 /* =====================================================
    VEGA CONTAINERS

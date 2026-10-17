@@ -1,16 +1,31 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Interactive box plot with player-level strip points comparing AFL Footy Stars card representation by player position and release year.",
+
+  "description": "Interval plot comparing player representation across AFL positions by release year.",
+
   "width": "container",
-  "height": 420,
+  "height": 330,
   "background": null,
+
   "data": {
-    "url": "data/v06_player_representation.csv"
+    "url": "data/v06_player_representation.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "year": "string",
+        "position_sort": "number",
+        "card_design_count": "number",
+        "category_count": "number",
+        "jitter_bucket": "number"
+      }
+    }
   },
+
   "params": [
     {
       "name": "releaseYear",
       "value": "2026",
+
       "bind": {
         "input": "select",
         "options": [
@@ -23,135 +38,225 @@
       }
     }
   ],
+
   "transform": [
     {
       "filter": "datum.year == releaseYear"
+    },
+    {
+      "aggregate": [
+        {
+          "op": "min",
+          "field": "card_design_count",
+          "as": "min_value"
+        },
+        {
+          "op": "q1",
+          "field": "card_design_count",
+          "as": "q1_value"
+        },
+        {
+          "op": "median",
+          "field": "card_design_count",
+          "as": "median_value"
+        },
+        {
+          "op": "q3",
+          "field": "card_design_count",
+          "as": "q3_value"
+        },
+        {
+          "op": "max",
+          "field": "card_design_count",
+          "as": "max_value"
+        },
+        {
+          "op": "count",
+          "as": "player_count"
+        }
+      ],
+
+      "groupby": [
+        "position_group",
+        "position_sort"
+      ]
     }
   ],
+
+  "encoding": {
+    "y": {
+      "field": "position_group",
+      "type": "nominal",
+      "title": null,
+
+      "sort": [
+        "Defender",
+        "Midfielder",
+        "Midfielder / Forward",
+        "Forward",
+        "Ruck"
+      ],
+
+      "axis": {
+        "labelFont": "DM Sans",
+        "labelFontSize": 12,
+        "labelColor": "#F5F7F8",
+        "labelLimit": 180,
+
+        "ticks": false,
+        "domain": false
+      }
+    }
+  },
+
   "layer": [
     {
       "mark": {
-        "type": "boxplot",
-        "extent": 1.5,
-        "size": 58,
-        "box": {
-          "fill": "#A9BBCB",
-          "stroke": "#174A7E",
-          "strokeWidth": 1.5
-        },
-        "median": {
-          "color": "#17212B",
-          "strokeWidth": 2.5
-        },
-        "rule": {
-          "color": "#52606B"
-        },
-        "ticks": {
-          "color": "#52606B"
-        },
-        "outliers": false
+        "type": "rule",
+        "strokeWidth": 2,
+        "stroke": "#9AA3AA",
+        "opacity": 0.65
       },
+
       "encoding": {
         "x": {
-          "field": "position_group",
-          "type": "nominal",
-          "title": "Player Position",
-          "sort": [
-            "Defender",
-            "Midfielder",
-            "Midfielder / Forward",
-            "Forward",
-            "Ruck"
-          ],
-          "axis": {
-            "labelAngle": 0,
-            "labelFontSize": 12,
-            "titleFontSize": 12
-          }
-        },
-        "y": {
-          "field": "card_design_count",
+          "field": "min_value",
           "type": "quantitative",
-          "title": "Card Designs Per Player",
+          "title": "Card Designs per Player",
+
           "scale": {
-            "zero": true
+            "domain": [
+              0,
+              18
+            ]
           },
+
           "axis": {
             "tickMinStep": 1,
+
+            "labelFont": "DM Sans",
             "labelFontSize": 12,
+            "labelColor": "#C3CDD3",
+
+            "titleFont": "DM Sans",
             "titleFontSize": 12,
-            "gridColor": "#E3E0D8",
-            "gridOpacity": 0.8
+            "titleFontWeight": 600,
+            "titleColor": "#F5F7F8",
+
+            "domainColor": "#73818A",
+            "tickColor": "#73818A",
+
+            "gridColor": "#AAB5BC",
+            "gridOpacity": 0.15
           }
+        },
+
+        "x2": {
+          "field": "max_value"
         }
       }
     },
+
     {
       "mark": {
-        "type": "circle",
-        "size": 28,
-        "opacity": 0.2,
-        "color": "#174A7E"
+        "type": "rule",
+        "strokeWidth": 12,
+        "stroke": "#C7D2DA",
+        "strokeCap": "round"
       },
+
       "encoding": {
         "x": {
-          "field": "position_group",
-          "type": "nominal",
-          "sort": [
-            "Defender",
-            "Midfielder",
-            "Midfielder / Forward",
-            "Forward",
-            "Ruck"
-          ]
+          "field": "q1_value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              18
+            ]
+          }
         },
-        "xOffset": {
-          "field": "jitter_bucket",
-          "type": "nominal"
+
+        "x2": {
+          "field": "q3_value"
+        }
+      }
+    },
+
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 150,
+
+        "color": "#FAF9F3",
+        "stroke": "#2E2E2E",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "x": {
+          "field": "median_value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              18
+            ]
+          }
         },
-        "y": {
-          "field": "card_design_count",
-          "type": "quantitative"
-        },
+
         "tooltip": [
-          {
-            "field": "player_name",
-            "type": "nominal",
-            "title": "Player"
-          },
           {
             "field": "position_group",
             "type": "nominal",
             "title": "Player Position"
           },
           {
-            "field": "team",
-            "type": "nominal",
-            "title": "Team"
-          },
-          {
-            "field": "card_design_count",
+            "field": "player_count",
             "type": "quantitative",
-            "title": "Card Designs"
+            "title": "Players"
           },
           {
-            "field": "category_count",
+            "field": "min_value",
             "type": "quantitative",
-            "title": "Distinct Categories"
+            "title": "Minimum",
+            "format": ".2~f"
           },
           {
-            "field": "year",
-            "type": "ordinal",
-            "title": "Release Year"
+            "field": "q1_value",
+            "type": "quantitative",
+            "title": "Q1",
+            "format": ".2~f"
+          },
+          {
+            "field": "median_value",
+            "type": "quantitative",
+            "title": "Median",
+            "format": ".2~f"
+          },
+          {
+            "field": "q3_value",
+            "type": "quantitative",
+            "title": "Q3",
+            "format": ".2~f"
+          },
+          {
+            "field": "max_value",
+            "type": "quantitative",
+            "title": "Maximum",
+            "format": ".2~f"
           }
         ]
       }
     }
   ],
+
   "config": {
     "view": {
       "stroke": null
     },
-    "font": "Arial"
+
+    "font": "DM Sans"
   }
 }

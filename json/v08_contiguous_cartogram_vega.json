@@ -85,17 +85,14 @@
           "name": "aflRate",
           "type": "threshold",
           "domain": [
-            1,
-            2,
-            4,
-            6
+            1,2,4,6
           ],
           "range": [
-            "#EAF3FB",
-            "#CFE2F3",
-            "#9CC3E3",
-            "#6097C5",
-            "#174A7E"
+            "#E8ECFF",
+            "#B8C3FF",
+            "#7D92FF",
+            "#4664FA",
+            "#0F31F0"
           ]
         }
       ],
@@ -116,14 +113,14 @@
           "symbolType": "square",
           "symbolSize": 110,
 
-          "titleFont": "Arial",
+          "titleFont": "DM Sans",
           "titleFontSize": 11,
           "titleFontWeight": "bold",
-          "titleColor": "#17212B",
+          "titleColor": "#F5F7F8",
 
-          "labelFont": "Arial",
+          "labelFont": "DM Sans",
           "labelFontSize": 10,
-          "labelColor": "#52606B",
+          "labelColor": "#F5F7F8",
 
           "format": ".1f",
 
@@ -154,7 +151,7 @@
                 "value": "Australian Football"
               },
               "font": {
-                "value": "Arial"
+                "value": "DM Sans"
               },
               "fontSize": {
                 "value": 15
@@ -163,7 +160,7 @@
                 "value": "bold"
               },
               "fill": {
-                "value": "#17212B"
+                "value": "#F5F7F8"
               }
             }
           }
@@ -195,7 +192,7 @@
               },
 
               "stroke": {
-                "value": "#59636E"
+                "value": "#2E2E2E"
               },
 
               "strokeWidth": {
@@ -257,17 +254,14 @@
           "name": "nrlRate",
           "type": "threshold",
           "domain": [
-            1,
-            2,
-            4,
-            6
+            1,2,4,6
           ],
           "range": [
-            "#FFF3E8",
-            "#FDD9BF",
-            "#F6B58C",
-            "#E9875C",
-            "#C65D39"
+            "#FFE8ED",
+            "#FFB6C4",
+            "#FF7B94",
+            "#F94365",
+            "#F10E3B"
           ]
         }
       ],
@@ -288,14 +282,14 @@
           "symbolType": "square",
           "symbolSize": 110,
 
-          "titleFont": "Arial",
+          "titleFont": "DM Sans",
           "titleFontSize": 11,
           "titleFontWeight": "bold",
-          "titleColor": "#17212B",
+          "titleColor": "#F5F7F8",
 
-          "labelFont": "Arial",
+          "labelFont": "DM Sans",
           "labelFontSize": 10,
-          "labelColor": "#52606B",
+          "labelColor": "#F5F7F8",
 
           "format": ".1f",
 
@@ -326,7 +320,7 @@
                 "value": "Rugby League"
               },
               "font": {
-                "value": "Arial"
+                "value": "DM Sans"
               },
               "fontSize": {
                 "value": 15
@@ -335,7 +329,7 @@
                 "value": "bold"
               },
               "fill": {
-                "value": "#17212B"
+                "value": "#F5F7F8"
               }
             }
           }
@@ -367,7 +361,7 @@
               },
 
               "stroke": {
-                "value": "#59636E"
+                "value": "#2E2E2E"
               },
 
               "strokeWidth": {
