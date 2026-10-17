@@ -232,3 +232,24 @@ vegaEmbed(
 .catch(function (error) {
   console.error("Error loading Visualisation 10:", error);
 });
+
+
+// =====================================================
+// VISUALISATION 11
+// 2020 → 2026 Collection Evolution Slope Chart
+// =====================================================
+
+vegaEmbed(
+  "#vis11",
+  "json/v11_collection_evolution_slope.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+.then(function () {
+  console.log("Visualisation 11 loaded successfully.");
+})
+.catch(function (error) {
+  console.error("Error loading Visualisation 11:", error);
+});
