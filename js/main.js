@@ -212,3 +212,23 @@ vegaEmbed(
       error
     );
   });
+
+
+// =====================================================
+// VISUALISATION 10
+// Connected-dot Plot
+// =====================================================
+vegaEmbed(
+  "#vis10",
+  "json/v10_category_family_dumbbell.json",
+  {
+    actions: false,
+    renderer: "svg"
+  }
+)
+.then(function () {
+  console.log("Visualisation 10 loaded successfully.");
+})
+.catch(function (error) {
+  console.error("Error loading Visualisation 10:", error);
+});

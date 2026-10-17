@@ -1,0 +1,210 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Dumbbell plot comparing the share of 2026 AFL Footy Stars and NRL League Heroes categories across analytical category families.",
+  "width": "container",
+  "height": 420,
+  "background": null,
+  "data": {
+    "url": "data/v10_afl_nrl_category_comparison.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#AAB5BC",
+        "opacity": 0.55
+      },
+      "encoding": {
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "family_sort",
+            "order": "ascending"
+          },
+          "axis": {
+            "labelFont": "DM Sans",
+            "labelFontSize": 12,
+            "labelColor": "#F5F7F8",
+            "labelLimit": 230,
+            "labelPadding": 18,
+            "ticks": false,
+            "domain": false
+          }
+        },
+        "x": {
+          "field": "afl_share_pct",
+          "type": "quantitative",
+          "title": "Share of Categories (%)",
+          "scale": {
+            "domain": [
+              0,
+              40
+            ],
+            "nice": false,
+            "zero": true
+          },
+          "axis": {
+            "labelFont": "DM Sans",
+            "labelFontSize": 11,
+            "labelColor": "#D6D6D3",
+            "titleFont": "DM Sans",
+            "titleFontSize": 12,
+            "titleFontWeight": "bold",
+            "titleColor": "#F5F7F8",
+            "gridColor": "#AAB5BC",
+            "gridOpacity": 0.16,
+            "domainColor": "#73818A",
+            "tickColor": "#73818A",
+            "format": ".0f"
+          }
+        },
+        "x2": {
+          "field": "nrl_share_pct"
+        },
+        "tooltip": [
+          {
+            "field": "family",
+            "type": "nominal",
+            "title": "Category Family"
+          },
+          {
+            "field": "afl_share_pct",
+            "type": "quantitative",
+            "title": "Australian Football Share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "nrl_share_pct",
+            "type": "quantitative",
+            "title": "Rugby League Share (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "difference_pp",
+            "type": "quantitative",
+            "title": "AFL − Rugby League (pp)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "fold": [
+            "afl_share_pct",
+            "nrl_share_pct"
+          ],
+          "as": [
+            "sport_field",
+            "share_pct"
+          ]
+        },
+        {
+          "calculate": "datum.sport_field === 'afl_share_pct' ? 'Australian football' : 'Rugby league'",
+          "as": "sport"
+        },
+        {
+          "calculate": "datum.sport_field === 'afl_share_pct' ? datum.afl_category_count : datum.nrl_category_count",
+          "as": "category_count"
+        },
+        {
+          "calculate": "datum.sport_field === 'afl_share_pct' ? datum.afl_categories : datum.nrl_categories",
+          "as": "categories"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": 180,
+        "stroke": "#4B4B4B",
+        "strokeWidth": 1.5,
+        "opacity": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "family",
+          "type": "nominal",
+          "sort": {
+            "field": "family_sort",
+            "order": "ascending"
+          }
+        },
+        "x": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              40
+            ],
+            "nice": false,
+            "zero": true
+          }
+        },
+        "color": {
+          "field": "sport",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Australian football",
+              "Rugby league"
+            ],
+            "range": [
+              "#0F31F0",
+              "#F10E3B"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "labelFont": "DM Sans",
+            "labelFontSize": 11,
+            "labelColor": "#F5F7F8",
+            "symbolType": "circle",
+            "symbolSize": 120,
+            "offset": 14
+          }
+        },
+        "tooltip": [
+          {
+            "field": "family",
+            "type": "nominal",
+            "title": "Category Family"
+          },
+          {
+            "field": "sport",
+            "type": "nominal",
+            "title": "Sport"
+          },
+          {
+            "field": "category_count",
+            "type": "quantitative",
+            "title": "Distinct Categories",
+            "format": ".0f"
+          },
+          {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of Categories (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "categories",
+            "type": "nominal",
+            "title": "Categories"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans"
+  }
+}
