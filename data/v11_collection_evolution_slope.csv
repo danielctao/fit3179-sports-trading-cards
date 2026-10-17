@@ -1,0 +1,33 @@
+sport,year,family,family_sort,category_count,total_categories,share_pct,coverage_note
+Australian football,2020,Base,1,2,13,15.4,AFL Footy Stars official category metadata.
+Australian football,2020,Character / Illustrated,2,3,13,23.1,AFL Footy Stars official category metadata.
+Australian football,2020,Player Feature / Performance,3,2,13,15.4,AFL Footy Stars official category metadata.
+Australian football,2020,Parallel / Variant,4,2,13,15.4,AFL Footy Stars official category metadata.
+Australian football,2020,Predictor / Redemption,5,2,13,15.4,AFL Footy Stars official category metadata.
+Australian football,2020,Premium / Limited,6,1,13,7.7,AFL Footy Stars official category metadata.
+Australian football,2020,Signature / Patch,7,0,13,0.0,AFL Footy Stars official category metadata.
+Australian football,2020,Prize / Promotion,8,1,13,7.7,AFL Footy Stars official category metadata.
+Australian football,2026,Base,1,2,26,7.7,AFL Footy Stars official category metadata.
+Australian football,2026,Character / Illustrated,2,1,26,3.8,AFL Footy Stars official category metadata.
+Australian football,2026,Player Feature / Performance,3,2,26,7.7,AFL Footy Stars official category metadata.
+Australian football,2026,Parallel / Variant,4,9,26,34.6,AFL Footy Stars official category metadata.
+Australian football,2026,Predictor / Redemption,5,0,26,0.0,AFL Footy Stars official category metadata.
+Australian football,2026,Premium / Limited,6,3,26,11.5,AFL Footy Stars official category metadata.
+Australian football,2026,Signature / Patch,7,8,26,30.8,AFL Footy Stars official category metadata.
+Australian football,2026,Prize / Promotion,8,1,26,3.8,AFL Footy Stars official category metadata.
+Rugby league,2020,Base,1,0,6,0.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Character / Illustrated,2,2,6,33.3,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Player Feature / Performance,3,3,6,50.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Parallel / Variant,4,1,6,16.7,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Predictor / Redemption,5,0,6,0.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Premium / Limited,6,0,6,0.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Signature / Patch,7,0,6,0.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2020,Prize / Promotion,8,0,6,0.0,Available 2020 NRL categories extracted in Dataset 2.
+Rugby league,2026,Base,1,2,18,11.1,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Character / Illustrated,2,1,18,5.6,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Player Feature / Performance,3,2,18,11.1,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Parallel / Variant,4,3,18,16.7,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Predictor / Redemption,5,5,18,27.8,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Premium / Limited,6,4,18,22.2,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Signature / Patch,7,0,18,0.0,2026 NRL League Heroes official category metadata.
+Rugby league,2026,Prize / Promotion,8,1,18,5.6,2026 NRL League Heroes official category metadata.

@@ -1,0 +1,271 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Faceted slope chart comparing changes in category-family share from 2020 to 2026 for Australian football and rugby league trading-card collections.",
+  "background": null,
+  "data": {
+    "url": "data/v11_collection_evolution_slope.csv"
+  },
+  "facet": {
+    "column": {
+      "field": "sport",
+      "type": "nominal",
+      "sort": [
+        "Australian football",
+        "Rugby league"
+      ],
+      "header": {
+        "title": null,
+        "labelFont": "DM Sans",
+        "labelFontSize": 14,
+        "labelFontWeight": "bold",
+        "labelColor": "#F5F7F8",
+        "labelPadding": 12
+      }
+    }
+  },
+  "spec": {
+    "width": 360,
+    "height": 390,
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "strokeWidth": 3,
+          "opacity": 0.85,
+          "point": {
+            "filled": true,
+            "size": 95,
+            "stroke": "#4B4B4B",
+            "strokeWidth": 1.2
+          }
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": null,
+            "sort": [
+              2020,
+              2026
+            ],
+            "axis": {
+              "labelFont": "DM Sans",
+              "labelFontSize": 12,
+              "labelFontWeight": "bold",
+              "labelColor": "#F5F7F8",
+              "labelAngle": 0,
+              "ticks": false,
+              "domain": false,
+              "labelPadding": 10
+            }
+          },
+          "y": {
+            "field": "share_pct",
+            "type": "quantitative",
+            "title": "Share of Categories (%)",
+            "scale": {
+              "domain": [
+                0,
+                55
+              ],
+              "nice": false,
+              "zero": true
+            },
+            "axis": {
+              "values": [
+                0,
+                10,
+                20,
+                30,
+                40,
+                50
+              ],
+              "labelExpr": "datum.value + '%'",
+              "labelFont": "DM Sans",
+              "labelFontSize": 11,
+              "labelColor": "#D6D6D3",
+              "titleFont": "DM Sans",
+              "titleFontSize": 12,
+              "titleFontWeight": "bold",
+              "titleColor": "#F5F7F8",
+              "titlePadding": 18,
+              "gridColor": "#AAB5BC",
+              "gridOpacity": 0.15,
+              "domain": false,
+              "tickColor": "#73818A"
+            }
+          },
+          "color": {
+            "field": "family",
+            "type": "nominal",
+            "title": "Category Family",
+            "scale": {
+              "domain": [
+                "Base",
+                "Character / Illustrated",
+                "Player Feature / Performance",
+                "Parallel / Variant",
+                "Predictor / Redemption",
+                "Premium / Limited",
+                "Signature / Patch",
+                "Prize / Promotion"
+              ],
+              "range": [
+                "#2F80ED",
+                "#00B8D9",
+                "#5E60CE",
+                "#8A4FFF",
+                "#B44CFF",
+                "#D84FD3",
+                "#FF5CA8",
+                "#B9C8D9"
+              ]
+            },
+            "legend": {
+              "orient": "none",
+              "legendX": 110,
+              "legendY": 465,
+              "direction": "horizontal",
+              "columns": 4,
+              "anchor": "middle",
+              "labelFont": "DM Sans",
+              "labelFontSize": 10,
+              "labelColor": "#F5F7F8",
+              "titleFont": "DM Sans",
+              "titleFontSize": 11,
+              "titleFontWeight": "bold",
+              "titleColor": "#F5F7F8",
+              "symbolType": "circle",
+              "symbolSize": 100,
+              "rowPadding": 5,
+              "offset": 16
+            }
+          },
+          "detail": {
+            "field": "family"
+          },
+          "tooltip": [
+            {
+              "field": "sport",
+              "type": "nominal",
+              "title": "Sport"
+            },
+            {
+              "field": "family",
+              "type": "nominal",
+              "title": "Category Family"
+            },
+            {
+              "field": "year",
+              "type": "ordinal",
+              "title": "Year"
+            },
+            {
+              "field": "category_count",
+              "type": "quantitative",
+              "title": "Distinct Categories"
+            },
+            {
+              "field": "share_pct",
+              "type": "quantitative",
+              "title": "Share of Categories (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "total_categories",
+              "type": "quantitative",
+              "title": "Total Categories"
+            }
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.year == 2026"
+          },
+          {
+            "calculate": "format(datum.share_pct, '.1f') + '%'",
+            "as": "share_label"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "dx": 10,
+          "align": "left",
+          "baseline": "middle",
+          "font": "DM Sans",
+          "fontSize": 10,
+          "fontWeight": "bold"
+        },
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "ordinal",
+            "sort": [
+              2020,
+              2026
+            ]
+          },
+          "y": {
+            "field": "share_pct",
+            "type": "quantitative",
+            "scale": {
+              "domain": [
+                0,
+                55
+              ],
+              "nice": false,
+              "zero": true
+            }
+          },
+          "text": {
+            "field": "share_label",
+            "type": "nominal"
+          },
+          "color": {
+            "field": "family",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Base",
+                "Character / Illustrated",
+                "Player Feature / Performance",
+                "Parallel / Variant",
+                "Predictor / Redemption",
+                "Premium / Limited",
+                "Signature / Patch",
+                "Prize / Promotion"
+              ],
+              "range": [
+                "#2F80ED",
+                "#00B8D9",
+                "#5E60CE",
+                "#8A4FFF",
+                "#B44CFF",
+                "#D84FD3",
+                "#FF5CA8",
+                "#B9C8D9"
+              ]
+            },
+            "legend": null
+          }
+        }
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans",
+    "facet": {
+      "spacing": 46
+    }
+  }
+}

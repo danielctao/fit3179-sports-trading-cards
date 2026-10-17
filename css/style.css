@@ -231,7 +231,8 @@ body {
 #vis7,
 #vis8,
 #vis9,
-#vis10 {
+#vis10,
+#vis11 {
   width: 100%;
 }
 
@@ -275,6 +276,10 @@ body {
   min-height: 470px;
 }
 
+#vis11 {
+  min-height: 560px;
+}
+
 
 /* All Vega visualisations */
 
@@ -287,7 +292,8 @@ body {
 #vis7 .vega-embed,
 #vis8 .vega-embed,
 #vis9 .vega-embed,
-#vis10 .vega-embed {
+#vis10 .vega-embed,
+#vis11 .vega-embed {
   width: 100%;
 }
 
@@ -309,6 +315,13 @@ body {
 /* V9 */
 
 #vis9 .vega-embed {
+  display: flex;
+  justify-content: center;
+}
+
+/* V11 */
+
+#vis11 .vega-embed {
   display: flex;
   justify-content: center;
 }
@@ -335,6 +348,10 @@ body {
 .chart-note strong {
   color: var(--text-primary);
   font-weight: 700;
+}
+
+.takeaway-note {
+  margin-top: 18px;
 }
 
 /* V5 chart note adjustment */
