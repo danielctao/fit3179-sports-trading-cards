@@ -54,6 +54,7 @@
             "titleFontSize": 12,
             "titleFontWeight": "bold",
             "titleColor": "#F5F7F8",
+            "titlePadding": 18,
             "gridColor": "#AAB5BC",
             "gridOpacity": 0.16,
             "domainColor": "#73818A",

@@ -133,19 +133,16 @@
 
           "axis": {
             "tickMinStep": 1,
-
             "labelFont": "DM Sans",
             "labelFontSize": 12,
             "labelColor": "#C3CDD3",
-
             "titleFont": "DM Sans",
             "titleFontSize": 12,
             "titleFontWeight": 600,
             "titleColor": "#F5F7F8",
-
+            "titlePadding": 18,
             "domainColor": "#73818A",
             "tickColor": "#73818A",
-
             "gridColor": "#AAB5BC",
             "gridOpacity": 0.15
           }
