@@ -177,26 +177,34 @@
             "title": "Category Family"
           },
           {
-            "field": "sport",
-            "type": "nominal",
-            "title": "Sport"
-          },
-          {
-            "field": "category_count",
+            "field": "afl_share_pct",
             "type": "quantitative",
-            "title": "Distinct Categories",
-            "format": ".0f"
-          },
-          {
-            "field": "share_pct",
-            "type": "quantitative",
-            "title": "Share of Categories (%)",
+            "title": "Australian Football (%)",
             "format": ".1f"
           },
           {
-            "field": "categories",
-            "type": "nominal",
-            "title": "Categories"
+            "field": "nrl_share_pct",
+            "type": "quantitative",
+            "title": "Rugby League (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "difference_pp",
+            "type": "quantitative",
+            "title": "AFL − Rugby League (pp)",
+            "format": "+.1f"
+          },
+          {
+            "field": "afl_category_count",
+            "type": "quantitative",
+            "title": "AFL Categories",
+            "format": ".0f"
+          },
+          {
+            "field": "nrl_category_count",
+            "type": "quantitative",
+            "title": "Rugby League Categories",
+            "format": ".0f"
           }
         ]
       }

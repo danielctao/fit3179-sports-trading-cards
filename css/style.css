@@ -109,11 +109,32 @@ body {
    ===================================================== */
 
 .story-section {
+  position: relative;
+
   padding: 50px 0;
 
   background: var(--page-bg);
 
-  border-bottom: 1px solid #808080;
+  border-bottom: none;
+}
+
+.story-section:not(:last-of-type)::after {
+  content: "";
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(950px, 88%);
+  height: 1px;
+
+  background: #808080;
+  opacity: 0.55;
+}
+
+.story-section:last-of-type {
+  border-bottom: none;
 }
 
 .section-number {
@@ -369,17 +390,16 @@ body {
    METHOD + SOURCE NOTES
    ===================================================== */
 
-.method-note,
-.source-note {
+.method-note {
   max-width: 58ch;
 
   margin-top: 14px;
 
-  font-size: 0.78rem;
+  font-size: 0.8rem;
   line-height: 1.65;
 
-  color: #DBDBDB;
-  opacity: 0.5;
+  color: #F5F7F8;
+  opacity: 0.75;
   
 }
 
@@ -474,4 +494,46 @@ body {
 
   font-family: var(--font-body);
   font-size: 0.9rem;
+}
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.site-footer {
+  padding: 38px 0 48px;
+  background: #242424;
+}
+
+.footer-author {
+  margin: 0;
+
+  font-size: 0.88rem;
+  line-height: 1.6;
+
+  color: var(--text-primary);
+}
+
+.footer-unit {
+  margin: 3px 0 22px;
+
+  font-size: 0.82rem;
+  font-weight: 500;
+
+  color: var(--text-secondary);
+}
+
+.footer-sources {
+  max-width: 88ch;
+
+  margin: 0;
+
+  font-size: 0.76rem;
+  line-height: 1.75;
+
+  color: #BEBEBA;
+}
+
+.footer-sources strong {
+  color: var(--text-primary);
 }

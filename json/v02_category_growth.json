@@ -49,7 +49,6 @@
             "titlePadding": 18,
             "domainColor": "#73818A",
             "tickColor": "#73818A",
-
             "grid": false
           }
         },
@@ -63,7 +62,7 @@
             "zero": true,
             "domain": [
               0,
-              30
+              32
             ]
           },
 
@@ -112,13 +111,10 @@
     {
       "mark": {
         "type": "text",
-
         "dy": -15,
-
         "font": "DM Sans",
         "fontSize": 12,
         "fontWeight": "bold",
-
         "color": "#F5F7F8"
       },
 
@@ -126,7 +122,6 @@
         "x": {
           "field": "year",
           "type": "ordinal",
-
           "sort": [
             "2020",
             "2022",
@@ -143,6 +138,122 @@
         "text": {
           "field": "category_count",
           "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2026"
+        }
+      ],
+
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 230,
+        "fill": "#EB6C1C",
+        "stroke": "#F5F7F8",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": [
+            "2020",
+            "2022",
+            "2024",
+            "2026"
+          ]
+        },
+
+        "y": {
+          "field": "category_count",
+          "type": "quantitative"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2026"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -18,
+        "dy": -46,
+        "font": "DM Sans",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#F5F7F8"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": [
+            "2020",
+            "2022",
+            "2024",
+            "2026"
+          ]
+        },
+
+        "y": {
+          "field": "category_count",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "value": "17 of 26 categories"
+        }
+      }
+    },
+
+    {
+      "transform": [
+        {
+          "filter": "datum.year == 2026"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -18,
+        "dy": -29,
+        "font": "DM Sans",
+        "fontSize": 11,
+        "color": "#D6D6D3"
+      },
+
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "sort": [
+            "2020",
+            "2022",
+            "2024",
+            "2026"
+          ]
+        },
+
+        "y": {
+          "field": "category_count",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "value": "Parallel / Variant or Signature / Patch"
         }
       }
     }

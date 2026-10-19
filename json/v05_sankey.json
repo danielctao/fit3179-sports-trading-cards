@@ -268,7 +268,7 @@
             "value": "middle"
           },
           "text": {
-            "signal": "datum.label + '  ' + datum.count"
+            "signal": "datum.label"
           },
           "font": {
             "value": "DM Sans"

@@ -115,25 +115,30 @@
     {
       "transform": [
         {
-          "calculate": "datum.category_count == 0 ? '' : datum.category_count",
-          "as": "cell_label"
+          "filter": "(datum.year == 2022 && datum.family == 'Parallel / Variant') || (datum.year == 2026 && datum.family == 'Parallel / Variant') || (datum.year == 2026 && datum.family == 'Signature / Patch')"
         }
       ],
+
       "mark": {
         "type": "text",
         "font": "DM Sans",
-        "fontSize": 13,
-        "fontWeight": "bold"
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "color": "#FFFFFF"
       },
+
       "encoding": {
+
         "x": {
           "field": "year",
           "type": "ordinal",
           "sort": ["2020", "2022", "2024", "2026"]
         },
+
         "y": {
           "field": "family",
           "type": "nominal",
+
           "sort": [
             "Base",
             "Character / Illustrated",
@@ -145,24 +150,21 @@
             "Prize / Promotion"
           ]
         },
+
         "text": {
-          "field": "cell_label",
-          "type": "nominal"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.category_count >= 5",
-            "value": "#F5F7F8"
-          },
-          "value": "#1F4260"
+          "field": "category_count",
+          "type": "quantitative"
         }
       }
     }
+
   ],
+
   "config": {
     "view": {
       "stroke": null
     },
+
     "font": "DM Sans"
   }
 }

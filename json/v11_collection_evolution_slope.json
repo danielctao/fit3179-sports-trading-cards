@@ -28,6 +28,60 @@
     "height": 390,
     "layer": [
       {
+        "transform": [
+          {
+            "calculate": "datum.year == 2020 ? datum.share_pct : null",
+            "as": "share_2020"
+          },
+          {
+            "calculate": "datum.year == 2026 ? datum.share_pct : null",
+            "as": "share_2026"
+          },
+          {
+            "calculate": "datum.year == 2020 ? datum.category_count : null",
+            "as": "count_2020"
+          },
+          {
+            "calculate": "datum.year == 2026 ? datum.category_count : null",
+            "as": "count_2026"
+          },
+          {
+            "joinaggregate": [
+              {
+                "op": "max",
+                "field": "share_2020",
+                "as": "family_share_2020"
+              },
+              {
+                "op": "max",
+                "field": "share_2026",
+                "as": "family_share_2026"
+              },
+              {
+                "op": "max",
+                "field": "count_2020",
+                "as": "family_count_2020"
+              },
+              {
+                "op": "max",
+                "field": "count_2026",
+                "as": "family_count_2026"
+              }
+            ],
+            "groupby": [
+              "sport",
+              "family"
+            ]
+          },
+          {
+            "calculate": "datum.family_share_2026 - datum.family_share_2020",
+            "as": "change_pp"
+          },
+          {
+            "calculate": "datum.family_count_2026 - datum.family_count_2020",
+            "as": "change_count"
+          }
+        ],
         "mark": {
           "type": "line",
           "strokeWidth": 3,
@@ -156,25 +210,40 @@
               "title": "Category Family"
             },
             {
-              "field": "year",
-              "type": "ordinal",
-              "title": "Year"
-            },
-            {
-              "field": "category_count",
+              "field": "family_share_2020",
               "type": "quantitative",
-              "title": "Distinct Categories"
-            },
-            {
-              "field": "share_pct",
-              "type": "quantitative",
-              "title": "Share of Categories (%)",
+              "title": "2020 Share (%)",
               "format": ".1f"
             },
             {
-              "field": "total_categories",
+              "field": "family_share_2026",
               "type": "quantitative",
-              "title": "Total Categories"
+              "title": "2026 Share (%)",
+              "format": ".1f"
+            },
+            {
+              "field": "change_pp",
+              "type": "quantitative",
+              "title": "Change 2020 → 2026 (pp)",
+              "format": "+.1f"
+            },
+            {
+              "field": "family_count_2020",
+              "type": "quantitative",
+              "title": "2020 Categories",
+              "format": ".0f"
+            },
+            {
+              "field": "family_count_2026",
+              "type": "quantitative",
+              "title": "2026 Categories",
+              "format": ".0f"
+            },
+            {
+              "field": "change_count",
+              "type": "quantitative",
+              "title": "Category Change 2020 → 2026",
+              "format": "+.0f"
             }
           ]
         }
