@@ -5,13 +5,19 @@
   "data": {
     "url": "data/v11_collection_evolution_slope.csv"
   },
+  "transform": [
+    {
+      "calculate": "datum.sport === 'Australian football' ? 'Australian Football' : datum.sport === 'Rugby league' ? 'Rugby League' : datum.sport",
+      "as": "sport_title"
+    }
+  ],
   "facet": {
     "column": {
-      "field": "sport",
+      "field": "sport_title",
       "type": "nominal",
       "sort": [
-        "Australian football",
-        "Rugby league"
+        "Australian Football",
+        "Rugby League"
       ],
       "header": {
         "title": null,
